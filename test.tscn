@@ -95,3 +95,5 @@ texture = ExtResource("1_37kl0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Icon" unique_id=892587928]
 libraries/ = SubResource("AnimationLibrary_ppyta")
+autoplay = &"move_right"
+speed_scale = 3.0
