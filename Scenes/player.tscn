@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cjkqlrkbqxh3a"]
+
+[ext_resource type="Script" uid="uid://1wwo0sowviq4" path="res://Scripts/move.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_6t5aa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_juw6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs5fy"]
+
+[node name="Player" type="Node2D" unique_id=162342464]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=744343613]
+script = ExtResource("1_cvnsp")
+speed = 500.0
+acceleration = 2000.0
+friction = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=738858970]
+sprite_frames = SubResource("SpriteFrames_juw6f")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=312292974]
+scale = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_hs5fy")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=416943287]
