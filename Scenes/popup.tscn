@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://6fe5wofegtcf"]
+
+[ext_resource type="Script" uid="uid://b5x88ilbdxc5k" path="res://Scripts/close.gd" id="1_2nprw"]
+
+[node name="popup" type="Node2D" unique_id=650290190]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1055823231]
+
+[node name="pop" type="Control" parent="CanvasLayer" unique_id=808564840]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2nprw")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/pop" unique_id=221554900]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 534.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/pop" unique_id=1653710123]
+layout_mode = 0
+offset_top = 512.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="CanvasLayer/pop" unique_id=1836731343]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 216.0
+offset_right = 664.0
+offset_bottom = 304.0
+text = "2+2=4"
+
+[node name="close" type="Button" parent="CanvasLayer/pop" unique_id=1835788523]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 520.0
+offset_right = 1136.0
+offset_bottom = 632.0
+text = "ok
+"
+
+[connection signal="pressed" from="CanvasLayer/pop/close" to="CanvasLayer/pop" method="_on_close_pressed"]

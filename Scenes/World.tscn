@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://b6vf1aji6dy38"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_5cjrv"]
+[ext_resource type="Script" uid="uid://4utbtfyehqan" path="res://Scripts/GameManager.gd" id="1_gjpho"]
 [ext_resource type="PackedScene" uid="uid://cjkqlrkbqxh3a" path="res://Scenes/player.tscn" id="2_j0p05"]
+[ext_resource type="PackedScene" uid="uid://6fe5wofegtcf" path="res://Scenes/popup.tscn" id="4_p70al"]
 
 [node name="Enviornment" type="Node2D" unique_id=258418600]
+script = ExtResource("1_gjpho")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=476788305]
 position = Vector2(650.25, 382.50003)
@@ -12,3 +15,15 @@ texture = ExtResource("1_5cjrv")
 
 [node name="Player" parent="." unique_id=162342464 instance=ExtResource("2_j0p05")]
 position = Vector2(477, 240)
+
+[node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_p70al")]
+visible = false
+
+[node name="open" type="Button" parent="." unique_id=1024874097]
+offset_left = 73.0
+offset_top = 36.0
+offset_right = 200.0
+offset_bottom = 103.0
+text = "display"
+
+[connection signal="pressed" from="open" to="." method="_on_open_pressed"]
