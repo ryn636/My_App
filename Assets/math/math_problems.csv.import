@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://buv7n4lrvm5oq"
+
+[deps]
+
+files=["res://Assets/math/math_problems.a.translation", "res://Assets/math/math_problems.op.translation", "res://Assets/math/math_problems.b.translation", "res://Assets/math/math_problems.answer.translation", "res://Assets/math/math_problems.difficulty.translation"]
+
+source_file="res://Assets/math/math_problems.csv"
+dest_files=["res://Assets/math/math_problems.a.translation", "res://Assets/math/math_problems.op.translation", "res://Assets/math/math_problems.b.translation", "res://Assets/math/math_problems.answer.translation", "res://Assets/math/math_problems.difficulty.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
