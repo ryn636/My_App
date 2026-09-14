@@ -10,6 +10,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if GlobalData.fighting == true:
+		return
 	var direction = Vector2(
 	Input.get_axis("move_left", "move_right"),
 	Input.get_axis("move_up", "move_down")

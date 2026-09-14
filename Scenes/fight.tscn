@@ -2,10 +2,25 @@
 
 [ext_resource type="Script" uid="uid://dvdhjdadb10f1" path="res://Scripts/FIGHTING.gd" id="1_bq00v"]
 [ext_resource type="PackedScene" uid="uid://cqqbsk3k6rtbp" path="res://Scenes/fightingplayer.tscn" id="2_bq00v"]
+[ext_resource type="Texture2D" uid="uid://cgm210odhn0yi" path="res://Assets/images.jpg" id="2_l8cav"]
 
 [node name="fight" type="Node2D" unique_id=235376421]
 script = ExtResource("1_bq00v")
 
+[node name="Images" type="Sprite2D" parent="." unique_id=1505484913]
+position = Vector2(614.4043, 323)
+scale = Vector2(2.0061727, 2.006173)
+texture = ExtResource("2_l8cav")
+
 [node name="fightingplayer" parent="." unique_id=2135218992 instance=ExtResource("2_bq00v")]
-position = Vector2(176, 544)
+position = Vector2(264, 392)
 script = null
+
+[node name="Button" type="Button" parent="." unique_id=395877443]
+offset_left = 544.0
+offset_top = 480.0
+offset_right = 712.0
+offset_bottom = 632.0
+text = "attack"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

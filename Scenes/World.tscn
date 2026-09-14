@@ -36,3 +36,6 @@ visible = false
 [node name="blueguy" parent="." unique_id=1679060359 instance=ExtResource("4_y7y61")]
 position = Vector2(592, 320)
 motion_mode = 1
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

@@ -2,6 +2,8 @@ extends CharacterBody2D
 ## Idle -> alert -> four-second pursuit -> return to the spawn position.
 ## Uses world collisions for sight and pathfinding; no navigation bake required.
 
+@export var hp: int = 3
+
 @export var player: CharacterBody2D
 @export var detection_radius: float = 276.0
 @export var chase_speed: float = 200.0
@@ -196,3 +198,6 @@ func _build_path(target: Vector2) -> void:
 	if not _path.is_empty():
 		_path.remove_at(0)
 		
+
+func get_lives() -> int:
+	return hp

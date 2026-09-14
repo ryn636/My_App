@@ -22,8 +22,8 @@ func _ready() -> void:
 func _on_enter_pressed() -> void:
 	_answer(mathIndex, math_problems, GlobalData.entry)
 	#show right answer
-	blueguy.set_physics_process(true)
-	player.set_physics_process(true)
+	#blueguy.set_physics_process(true)
+	#player.set_physics_process(true)
 	pop.visible = false
 	
 
@@ -34,8 +34,8 @@ func _on_trigger_entered(body: Node2D) -> void:
 		blueguy.set_physics_process(false)
 		player.set_physics_process(false)
 		$popup/CanvasLayer/pop/ansbox.text = ""
-		
-		pop.visible = true
+		#change to unload everything but script main scene for better performance
+		get_tree().change_scene_to_file("res://Scenes/fight.tscn")
 		mathIndex = randi_range(0, 29)
 		show_problem(mathIndex, math_problems)
 		
@@ -85,4 +85,19 @@ func _answer(index: int, prob: Array[Dictionary], ans: int)  -> bool:
 		return true
 	else:
 		print("u suck")
+		GlobalData.lives -= GlobalData.lives
 		return false
+
+
+
+
+
+func _on_tree_exited() -> void:
+	GlobalData.fighting = true
+	
+
+
+
+func _on_tree_entered() -> void:
+	if GlobalData.fighting == true:
+		GlobalData.fighting = false
