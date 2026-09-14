@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://nltbfig6p730"]
+
+[ext_resource type="Script" uid="uid://b7k8dm5stlpac" path="res://Scripts/Stair.gd" id="1_hk3ay"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7j2y7"]
+points = PackedVector2Array(80, 0, 80, -44, 0, -4, 0, 0)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_4fvdt"]
+points = PackedVector2Array(80, -40, 80, -44, 0, -4, 0, 0)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_iyjjs"]
+points = PackedVector2Array(72, -8, 0, 28, 0, -12, 72, -48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1jlh"]
+radius = 3.5850415
+height = 32.0
+
+[node name="stair collide" type="Node2D" unique_id=578760945]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1823925031]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1515672560]
+position = Vector2(0, 44)
+shape = SubResource("ConvexPolygonShape2D_7j2y7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1415520336]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=712254752]
+shape = SubResource("ConvexPolygonShape2D_4fvdt")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1448267115]
+scale = Vector2(2, 2)
+script = ExtResource("1_hk3ay")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=134761690]
+position = Vector2(8, 8)
+shape = SubResource("ConvexPolygonShape2D_iyjjs")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=981003129]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1940825625]
+position = Vector2(9.999999, -8.999999)
+rotation = 1.0895052
+shape = SubResource("CapsuleShape2D_a1jlh")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1949884669]
+position = Vector2(1, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1040309671]
+position = Vector2(9.999999, -8.999999)
+rotation = 1.0895052
+shape = SubResource("CapsuleShape2D_a1jlh")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

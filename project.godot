@@ -15,10 +15,19 @@ run/main_scene="res://Scenes/World.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalData="*uid://b8hdomxo47q43"
+
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+player=""
+enemy=""
 
 [input]
 

@@ -157,25 +157,22 @@ animations = [{
 "speed": 11.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1jlh"]
-radius = 11.0
-height = 64.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p70al"]
+radius = 15.0
+height = 52.0
 
-[node name="Player" type="Node2D" unique_id=162342464]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=744343613]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2135218992 groups=["player"]]
 script = ExtResource("1_cvnsp")
-speed = 650.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=738858970]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1681425121]
 scale = Vector2(2.2040625, 2.2040625)
 sprite_frames = SubResource("SpriteFrames_juw6f")
 animation = &"idle"
-autoplay = "idle"
 frame = 3
 frame_progress = 0.5732231
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=416943287]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=123384639]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=121145024]
-shape = SubResource("CapsuleShape2D_a1jlh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1452284030]
+position = Vector2(-1, 7)
+shape = SubResource("CapsuleShape2D_p70al")

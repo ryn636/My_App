@@ -5,22 +5,41 @@ var math_problems: Array[Dictionary] = []
 
 var mathIndex: int
 
+@onready var trigger_area: Area2D = $blueguy/Area2D
+
+@onready var button: Button = $popup/CanvasLayer/pop/enter
+@onready var pop: Control = $popup/CanvasLayer/pop
+@onready var blueguy: CharacterBody2D = $blueguy
+@onready var player: CharacterBody2D = $Player
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	trigger_area.body_entered.connect(_on_trigger_entered)
+	button.pressed.connect(_on_enter_pressed)
+	pop.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_open_pressed() -> void:
-	load_problems("res://Assets/math/math_problems.csv")
-	$popup/CanvasLayer/pop.visible = true
-	mathIndex = randi_range(0, 29)
-	show_problem(mathIndex, math_problems)
+func _on_enter_pressed() -> void:
+	_answer(mathIndex, math_problems, GlobalData.entry)
+	#show right answer
+	blueguy.set_physics_process(true)
+	player.set_physics_process(true)
+	pop.visible = false
 	
+
+func _on_trigger_entered(body: Node2D) -> void:
+	
+	if body.is_in_group("player"):
+		load_problems("res://Assets/math/math_problems.csv")
+		blueguy.set_physics_process(false)
+		player.set_physics_process(false)
+		$popup/CanvasLayer/pop/ansbox.text = ""
+		
+		pop.visible = true
+		mathIndex = randi_range(0, 29)
+		show_problem(mathIndex, math_problems)
+		
+		
 	
 
 func load_problems(path: String) -> void: 
@@ -60,3 +79,10 @@ func get_by_difficulty(level: int, arr: Array[Dictionary]) -> Array[Dictionary]:
 			probs.append(p)
 	return probs
 	
+func _answer(index: int, prob: Array[Dictionary], ans: int)  -> bool:
+	if prob[index].answer == ans:
+		print("gj")
+		return true
+	else:
+		print("u suck")
+		return false

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bhyqbalqxxbjv"]
+
+[ext_resource type="Script" uid="uid://dvdhjdadb10f1" path="res://Scripts/FIGHTING.gd" id="1_bq00v"]
+[ext_resource type="PackedScene" uid="uid://cqqbsk3k6rtbp" path="res://Scenes/fightingplayer.tscn" id="2_bq00v"]
+
+[node name="fight" type="Node2D" unique_id=235376421]
+script = ExtResource("1_bq00v")
+
+[node name="fightingplayer" parent="." unique_id=2135218992 instance=ExtResource("2_bq00v")]
+position = Vector2(176, 544)
+script = null

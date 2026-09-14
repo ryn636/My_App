@@ -19,27 +19,98 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 534.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/pop" unique_id=1653710123]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/pop" unique_id=1340996248]
 layout_mode = 0
-offset_top = 512.0
+offset_top = 440.0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Label" type="Label" parent="CanvasLayer/pop" unique_id=1836731343]
 layout_mode = 0
-offset_left = 472.0
+offset_left = 488.0
 offset_top = 216.0
-offset_right = 664.0
+offset_right = 680.0
 offset_bottom = 304.0
 text = "2+2=4"
 
-[node name="close" type="Button" parent="CanvasLayer/pop" unique_id=1835788523]
+[node name="ansbox" type="Label" parent="CanvasLayer/pop" unique_id=236505936]
 layout_mode = 0
-offset_left = 992.0
+offset_left = 680.0
+offset_top = 288.0
+offset_right = 840.0
+offset_bottom = 416.0
+
+[node name="enter" type="Button" parent="CanvasLayer/pop" unique_id=511080955]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 512.0
+offset_right = 970.0
+offset_bottom = 543.0
+scale = Vector2(2.52, 2.52)
+text = "enter"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/pop" unique_id=1077275375]
+layout_mode = 0
+offset_left = 184.0
 offset_top = 520.0
-offset_right = 1136.0
-offset_bottom = 632.0
-text = "ok
+offset_right = 429.0
+offset_bottom = 551.0
+columns = 11
+
+[node name="Button1" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1525398294]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=383290640]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=664759318]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=404028019]
+layout_mode = 2
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=472577177]
+layout_mode = 2
+text = "5
 "
 
-[connection signal="pressed" from="CanvasLayer/pop/close" to="CanvasLayer/pop" method="_on_close_pressed"]
+[node name="Button6" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1337757348]
+layout_mode = 2
+text = "6"
+
+[node name="Button7" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1732264331]
+layout_mode = 2
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1007762776]
+layout_mode = 2
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=924445001]
+layout_mode = 2
+text = "9"
+
+[node name="Button0" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1081243586]
+layout_mode = 2
+text = "0
+"
+
+[node name="Buttonx" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=114961951]
+layout_mode = 2
+text = "x"
+
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button1" to="CanvasLayer/pop" method="_on_button_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button2" to="CanvasLayer/pop" method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button3" to="CanvasLayer/pop" method="_on_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button4" to="CanvasLayer/pop" method="_on_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button5" to="CanvasLayer/pop" method="_on_button_5_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button6" to="CanvasLayer/pop" method="_on_button_6_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button7" to="CanvasLayer/pop" method="_on_button_7_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button8" to="CanvasLayer/pop" method="_on_button_8_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button9" to="CanvasLayer/pop" method="_on_button_9_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button0" to="CanvasLayer/pop" method="_on_button_0_pressed"]
+[connection signal="pressed" from="CanvasLayer/pop/GridContainer/Buttonx" to="CanvasLayer/pop" method="_on_buttonx_pressed"]
