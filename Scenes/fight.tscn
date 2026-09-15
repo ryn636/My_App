@@ -1,11 +1,29 @@
 [gd_scene format=3 uid="uid://bhyqbalqxxbjv"]
 
 [ext_resource type="Script" uid="uid://dvdhjdadb10f1" path="res://Scripts/FIGHTING.gd" id="1_bq00v"]
-[ext_resource type="PackedScene" uid="uid://cqqbsk3k6rtbp" path="res://Scenes/fightingplayer.tscn" id="2_bq00v"]
+[ext_resource type="PackedScene" uid="uid://cjkqlrkbqxh3a" path="res://Scenes/player.tscn" id="2_bq00v"]
+[ext_resource type="Texture2D" uid="uid://fsoa8ys0gs2f" path="res://Assets/ChatGPT Image Sep 14, 2026, 10_01_02 PM.png" id="2_l8cav"]
+[ext_resource type="PackedScene" uid="uid://6fe5wofegtcf" path="res://Scenes/popup.tscn" id="4_vvs45"]
 
 [node name="fight" type="Node2D" unique_id=235376421]
 script = ExtResource("1_bq00v")
 
-[node name="fightingplayer" parent="." unique_id=2135218992 instance=ExtResource("2_bq00v")]
-position = Vector2(176, 544)
-script = null
+[node name="back" type="Sprite2D" parent="." unique_id=1143347754]
+position = Vector2(578.74884, 332.37503)
+scale = Vector2(0.6956925, 0.7048351)
+texture = ExtResource("2_l8cav")
+
+[node name="CharacterBody2D" parent="." unique_id=2135218992 instance=ExtResource("2_bq00v")]
+position = Vector2(312, 448)
+scale = Vector2(2, 2)
+
+[node name="Button" type="Button" parent="." unique_id=937329310]
+offset_left = 560.0
+offset_top = 520.0
+offset_right = 696.0
+offset_bottom = 616.0
+text = "attack"
+
+[node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_vvs45")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

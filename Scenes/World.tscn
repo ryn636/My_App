@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ryroj753ccc8" path="res://Assets/background/Scene Overview.png" id="2_gjpho"]
 [ext_resource type="PackedScene" uid="uid://cjkqlrkbqxh3a" path="res://Scenes/player.tscn" id="2_j0p05"]
 [ext_resource type="TileSet" uid="uid://cd4xll6qc3t7f" path="res://Assets/background/ste2.tres" id="4_45d1s"]
-[ext_resource type="PackedScene" uid="uid://6fe5wofegtcf" path="res://Scenes/popup.tscn" id="4_p70al"]
 [ext_resource type="PackedScene" uid="uid://cht18sjp2otu3" path="res://Scenes/enemyknight.tscn" id="4_y7y61"]
 
 [node name="Enviornment" type="Node2D" unique_id=258418600]
@@ -29,9 +28,6 @@ texture = ExtResource("2_gjpho")
 [node name="Player" parent="." unique_id=162342464 instance=ExtResource("2_j0p05")]
 position = Vector2(0, 728)
 scale = Vector2(0.9, 0.9)
-
-[node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_p70al")]
-visible = false
 
 [node name="blueguy" parent="." unique_id=1679060359 instance=ExtResource("4_y7y61")]
 position = Vector2(592, 320)

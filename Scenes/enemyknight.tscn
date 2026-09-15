@@ -250,6 +250,7 @@ autoplay = "idle"
 frame_progress = 0.09662655
 
 [node name="!" type="AnimatedSprite2D" parent="knight" unique_id=210811775]
+visible = false
 position = Vector2(-3.181818, -10.454547)
 scale = Vector2(0.7130682, 0.7130682)
 sprite_frames = SubResource("SpriteFrames_4p2qw")
