@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var enemy_id: String = "knight1"
+#@export var enemy_id: String = "knight1"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
