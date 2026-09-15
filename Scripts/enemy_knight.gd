@@ -17,6 +17,8 @@ extends CharacterBody2D
 @onready var sight: RayCast2D = $Sprite2D/RayCast2D
 @onready var body_shape: CollisionShape2D = $CollisionShape2D
 
+
+
 enum State { IDLE, ALERT, CHASE, RETURN_HOME }
 var state: State = State.IDLE
 var home_position: Vector2
