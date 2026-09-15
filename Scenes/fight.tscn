@@ -17,13 +17,24 @@ texture = ExtResource("2_l8cav")
 position = Vector2(312, 448)
 scale = Vector2(2, 2)
 
-[node name="Button" type="Button" parent="." unique_id=937329310]
+[node name="attack" type="Button" parent="." unique_id=937329310]
 offset_left = 560.0
 offset_top = 520.0
 offset_right = 696.0
 offset_bottom = 616.0
 text = "attack"
 
+[node name="heal" type="Button" parent="." unique_id=1830234930]
+offset_left = 392.0
+offset_top = 520.0
+offset_right = 536.0
+offset_bottom = 624.0
+text = "heal"
+
 [node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_vvs45")]
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1218140442]
+position = Vector2(912, 448)
+
+[connection signal="pressed" from="attack" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="heal" to="." method="_on_heal_pressed"]

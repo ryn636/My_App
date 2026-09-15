@@ -1,0 +1,13 @@
+extends CharacterBody2D
+
+
+@export var enemy_id: String = "knight1"
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	$AnimatedSprite2D.play("idle")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
