@@ -11,6 +11,12 @@ extends CharacterBody2D
 @export var path_search_margin: float = 384.0
 @export var repath_interval: float = 0.4
 
+#spawn fight stuff
+@export var enemy_id: String = "knight_1"
+@export var fight_scene: PackedScene
+@export var enemy_hp: int = 3
+
+
 @onready var knight: AnimatedSprite2D = $knight
 @onready var alert_sprite: AnimatedSprite2D = get_node("knight/!")
 @onready var alert_player: AnimationPlayer = $knight/AnimationPlayer
