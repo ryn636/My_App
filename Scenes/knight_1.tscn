@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://d18lhjjssoj80" path="res://Assets/Outline/120x80_PNGSheets/_AttackCombo.png" id="2_yuy2k"]
 [ext_resource type="Texture2D" uid="uid://c23ybphdvn1g" path="res://Assets/Outline/120x80_PNGSheets/_Death.png" id="3_orxnv"]
 [ext_resource type="Texture2D" uid="uid://bn6jdorb4p6j3" path="res://Assets/Outline/120x80_PNGSheets/_Idle.png" id="4_70tey"]
-[ext_resource type="Texture2D" uid="uid://bmmja5yr8lr4g" path="res://Assets/Outline/120x80_PNGSheets/_Hit.png" id="5_gbqfi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6nij"]
 atlas = ExtResource("1_jddi3")
@@ -102,10 +101,6 @@ region = Rect2(960, 0, 120, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmgnw"]
 atlas = ExtResource("3_orxnv")
 region = Rect2(1080, 0, 120, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hatgq"]
-atlas = ExtResource("5_gbqfi")
-region = Rect2(0, 0, 120, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mm5f"]
 atlas = ExtResource("4_70tey")
@@ -238,14 +233,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hatgq")
-}],
-"loop": 1,
-"name": &"hit",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_3mm5f")
 }, {
 "duration": 1.0,
@@ -282,13 +269,12 @@ animations = [{
 
 [node name="knight1" type="CharacterBody2D" unique_id=1550958170 groups=["fightenemy"]]
 editor_description = "fight"
-scale = Vector2(4.5, 4.5)
 script = ExtResource("1_yuy2k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2096239869]
 sprite_frames = SubResource("SpriteFrames_d7w6g")
-animation = &"death"
-frame_progress = 0.4720026
+animation = &"idle"
+frame_progress = 0.27545565
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847230226]

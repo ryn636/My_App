@@ -15,9 +15,6 @@ var mathIndex: int
 var problemtype: int
 var action: String = ""
 
-
-var enemy_instance: CharacterBody2D
-var enemy_anim: AnimatedSprite2D
 func _ready() -> void:
 	
 	pop.visible = false
@@ -66,20 +63,16 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	if enemy_scene == null:
 		push_error("No fight_scene set on the enemy that triggered this fight")
 		return
-	enemy_instance = enemy_scene.instantiate()
+	var enemy_instance = enemy_scene.instantiate()
 	enemy_instance.position = enemy_spawn_point.position
 	add_child(enemy_instance)
-	enemy_anim = enemy_instance.get_node("AnimatedSprite2D")
 
 func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check answer and update lives
 	if action == "attack":
 		if prob[index].answer == ans:
 			print("gj")
-			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -1
 			pop.visible = false
-			enemy_anim.play("hit") 
-			if GlobalData.current_enemy_data.enemy_hp <= 0:
-				on_win()
+			get_tree().change_scene_to_file("res://Scenes/World.tscn")
 		else:
 			GlobalData.lives = GlobalData.lives - 1
 			pop.visible = false
@@ -121,7 +114,3 @@ func _on_button_pressed() -> void: # attack
 		mathIndex = randi_range(0, 29)
 		show_problem(mathIndex, math_problems)
 		pop.visible = true
-
-func on_win() -> void:
-	GlobalData.defeated_enemies.append(GlobalData.current_enemy_data.enemy_id)
-	get_tree().change_scene_to_file("res://Scenes/World.tscn")
