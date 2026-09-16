@@ -70,8 +70,7 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	enemy_instance.position = enemy_spawn_point.position
 	add_child(enemy_instance)
 	enemy_anim = enemy_instance.get_node("AnimatedSprite2D")
-	print("Available animations: ", enemy_anim.sprite_frames.get_animation_names())
-	print("Spawning scene: ", enemy_scene.resource_path)
+
 func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check answer and update lives
 	if action == "attack":
 		if prob[index].answer == ans:
