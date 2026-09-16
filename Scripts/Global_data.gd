@@ -9,4 +9,3 @@ var current_enemy_data: Dictionary = {}
 var lastpos: Vector2
 var has_return_position: bool = false
 var defeated_enemies: Array[String] = []
-var is_anim: bool = false
