@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bme4xox6gwxvn"]
+
+[node name="dialogue" type="Node2D" unique_id=1669292013]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1800688312]
+
+[node name="diagpop" type="Control" parent="CanvasLayer" unique_id=1587447765]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 372.0
+offset_top = 387.0
+offset_right = 736.0
+offset_bottom = 546.0
+
+[node name="Label" type="Label" parent="CanvasLayer/diagpop" unique_id=852245882]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 479.0
+offset_right = 369.0
+offset_bottom = 630.0

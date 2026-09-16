@@ -1,11 +1,10 @@
 extends Node2D
 
 
-@onready var trigger_area: Area2D = $blueguy/Area2D
+@onready var trigger_area: Area2D = $knight/Area2D
 
 
 
-@onready var blueguy: CharacterBody2D = $blueguy
 @onready var player: CharacterBody2D = $Player
 
 

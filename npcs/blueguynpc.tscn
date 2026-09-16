@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cqn3w7i6ksd8g"]
 
 [ext_resource type="Texture2D" uid="uid://dj3ypk78q6j6s" path="res://Assets/FREE_Kobold Warrior 2D Pixel Art/Sprites/with_outline/IDLE.png" id="1_0tnkw"]
+[ext_resource type="Script" uid="uid://vqsyqlxuuueb" path="res://npcs/blueguynpc.gd" id="1_c27se"]
+[ext_resource type="Script" uid="uid://bta310egsqyho" path="res://npcs/trigger_dialogue.gd" id="3_s3kua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o843m"]
 atlas = ExtResource("1_0tnkw")
@@ -56,7 +58,11 @@ animations = [{
 radius = 14.0
 height = 52.0
 
-[node name="blueguynpc" type="CharacterBody2D" unique_id=1442502241]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ittea"]
+radius = 38.013157
+
+[node name="blueguynpc" type="CharacterBody2D" unique_id=1442502241 groups=["npcs"]]
+script = ExtResource("1_c27se")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=477653826]
 sprite_frames = SubResource("SpriteFrames_d7w6g")
@@ -66,3 +72,10 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1928811301]
 position = Vector2(-14, 17)
 shape = SubResource("CapsuleShape2D_a1jlh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=507970528]
+script = ExtResource("3_s3kua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=685870427]
+position = Vector2(-18, 15)
+shape = SubResource("CircleShape2D_ittea")
