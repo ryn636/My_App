@@ -61,6 +61,7 @@ height = 52.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=477653826]
 sprite_frames = SubResource("SpriteFrames_d7w6g")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1928811301]
 position = Vector2(-14, 17)

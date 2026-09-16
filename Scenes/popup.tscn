@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://6fe5wofegtcf"]
 
 [ext_resource type="Script" uid="uid://b5x88ilbdxc5k" path="res://Scripts/close.gd" id="1_2nprw"]
+[ext_resource type="Texture2D" uid="uid://cg5rk2ethvsr6" path="res://buttons/buttons_14.png" id="2_mtma1"]
+[ext_resource type="Texture2D" uid="uid://cnvuwvuajqyve" path="res://buttons/bases_02.png" id="2_vjsy5"]
+[ext_resource type="Texture2D" uid="uid://df12wg0n2jtp7" path="res://buttons/buttons_18.png" id="3_fx8xh"]
+[ext_resource type="Texture2D" uid="uid://crlq83ghsvn8c" path="res://buttons/buttons_19.png" id="4_h4hm1"]
+[ext_resource type="Texture2D" uid="uid://c58bih70p5ovl" path="res://buttons/buttons_20.png" id="5_7gaej"]
+[ext_resource type="Texture2D" uid="uid://tody1whd11sk" path="res://buttons/buttons_21.png" id="6_6bwyj"]
+[ext_resource type="Texture2D" uid="uid://b8qqu16d0g5tk" path="res://buttons/buttons_22.png" id="7_fxtqm"]
+[ext_resource type="Texture2D" uid="uid://b3exa3f3u4jiw" path="res://buttons/buttons_23.png" id="8_cedh3"]
+[ext_resource type="Texture2D" uid="uid://bkc1svo2ngdn4" path="res://buttons/buttons_24.png" id="9_vt3hh"]
+[ext_resource type="Texture2D" uid="uid://smpjapdubf4w" path="res://buttons/buttons_25.png" id="10_us81a"]
+[ext_resource type="Texture2D" uid="uid://dwyvekvr2djcj" path="res://buttons/buttons_26.png" id="11_nvyf2"]
+[ext_resource type="Texture2D" uid="uid://c2xhcnk8yyid0" path="res://buttons/buttons_27.png" id="12_umiq4"]
+[ext_resource type="Texture2D" uid="uid://cs28sohdf7fyu" path="res://buttons/buttons_05.png" id="14_sdq6n"]
 
 [node name="popup" type="Node2D" unique_id=650290190]
 
@@ -12,11 +25,19 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_2nprw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/pop" unique_id=221554900]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 534.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 7.2000003
+anchor_top = 11.400001
+anchor_right = 7.2000003
+anchor_bottom = 11.400001
+offset_left = -288.0
+offset_top = -456.00003
+offset_right = 864.0
+offset_bottom = 77.99997
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/pop" unique_id=1340996248]
 layout_mode = 0
@@ -41,66 +62,134 @@ offset_bottom = 416.0
 
 [node name="enter" type="Button" parent="CanvasLayer/pop" unique_id=511080955]
 layout_mode = 0
-offset_left = 920.0
-offset_top = 512.0
-offset_right = 970.0
-offset_bottom = 543.0
+offset_left = 937.0
+offset_top = 486.0
+offset_right = 987.0
+offset_bottom = 526.0
 scale = Vector2(2.52, 2.52)
-text = "enter"
+icon = ExtResource("2_mtma1")
+flat = true
+
+[node name="Node2D" type="Node2D" parent="CanvasLayer/pop" unique_id=1839289980]
+position = Vector2(-28, -43)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1171820716]
+position = Vector2(69, 549)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=445683595]
+position = Vector2(113, 549)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=2105805520]
+position = Vector2(157, 549)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1042112042]
+position = Vector2(201, 549)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=917280818]
+position = Vector2(245, 548)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=745199283]
+position = Vector2(293, 548)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=800734927]
+position = Vector2(337, 549)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1938372122]
+position = Vector2(381, 549)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1962741437]
+position = Vector2(513, 548)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D10" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=854325547]
+position = Vector2(469, 548)
+texture = ExtResource("2_vjsy5")
+
+[node name="Sprite2D11" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=732542839]
+position = Vector2(425, 548)
+texture = ExtResource("2_vjsy5")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/pop" unique_id=1077275375]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 520.0
-offset_right = 429.0
-offset_bottom = 551.0
+offset_left = 21.0
+offset_top = 487.0
+offset_right = 505.0
+offset_bottom = 527.0
 columns = 11
 
 [node name="Button1" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1525398294]
 layout_mode = 2
-text = "1"
+icon = ExtResource("4_h4hm1")
+flat = true
 
 [node name="Button2" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=383290640]
 layout_mode = 2
-text = "2"
+icon = ExtResource("5_7gaej")
+flat = true
 
 [node name="Button3" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=664759318]
 layout_mode = 2
-text = "3"
+icon = ExtResource("6_6bwyj")
+flat = true
 
 [node name="Button4" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=404028019]
 layout_mode = 2
-text = "4"
+icon = ExtResource("7_fxtqm")
+flat = true
 
 [node name="Button5" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=472577177]
 layout_mode = 2
-text = "5
+text = "
 "
+icon = ExtResource("8_cedh3")
+flat = true
 
 [node name="Button6" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1337757348]
 layout_mode = 2
-text = "6"
+icon = ExtResource("9_vt3hh")
+flat = true
 
 [node name="Button7" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1732264331]
 layout_mode = 2
-text = "7"
+icon = ExtResource("10_us81a")
+flat = true
 
 [node name="Button8" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1007762776]
 layout_mode = 2
-text = "8"
+icon = ExtResource("11_nvyf2")
+flat = true
 
 [node name="Button9" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=924445001]
 layout_mode = 2
-text = "9"
+icon = ExtResource("12_umiq4")
+flat = true
 
 [node name="Button0" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1081243586]
 layout_mode = 2
-text = "0
-"
+icon = ExtResource("3_fx8xh")
+flat = true
 
 [node name="Buttonx" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=114961951]
 layout_mode = 2
-text = "x"
+icon = ExtResource("14_sdq6n")
+flat = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/pop" unique_id=617422074]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 568.0
+offset_right = 376.0
+offset_bottom = 591.0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+text = "make the buttons press boi"
 
 [connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button1" to="CanvasLayer/pop" method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button2" to="CanvasLayer/pop" method="_on_button_2_pressed"]

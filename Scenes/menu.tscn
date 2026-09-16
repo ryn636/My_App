@@ -1,3 +1,132 @@
 [gd_scene format=3 uid="uid://c6yvw0uabqseg"]
 
+[ext_resource type="Script" uid="uid://cyowhimcvll43" path="res://Scripts/menu.gd" id="1_wbdvm"]
+[ext_resource type="Script" uid="uid://bkv8tgqyihdwi" path="res://Scenes/menutxt.gd" id="2_6swd7"]
+[ext_resource type="Texture2D" uid="uid://cqn50m6fooqi0" path="res://Assets/background/Ocean/0 ocean sky and sun.png" id="2_q3rjx"]
+[ext_resource type="Texture2D" uid="uid://pu2yipf4npqf" path="res://Assets/background/Ocean/1 ocean sea.png" id="3_6swd7"]
+[ext_resource type="Texture2D" uid="uid://dpbaj0iu2i3lv" path="res://Assets/background/Ocean/3 ocean clouds.png" id="4_7qvly"]
+[ext_resource type="Texture2D" uid="uid://cobtwcriy2dru" path="res://Assets/background/Ocean/4 ocean back mountain.png" id="5_rfqti"]
+[ext_resource type="Texture2D" uid="uid://b1qbhui2d1ru1" path="res://Assets/background/Ocean/5 ocean sand.png" id="6_g8i7c"]
+[ext_resource type="Texture2D" uid="uid://cpxo6rx228pqq" path="res://Assets/background/Ocean/6 ocean wave.png" id="7_23t3j"]
+[ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="8_q3rjx"]
+[ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="9_6swd7"]
+
 [node name="menu" type="Node2D" unique_id=1824693103]
+script = ExtResource("1_wbdvm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=916991257]
+script = ExtResource("2_6swd7")
+
+[node name="author" type="RichTextLabel" parent="CanvasLayer" unique_id=1404162237]
+offset_left = 1024.0
+offset_top = 608.0
+offset_right = 1168.0
+offset_bottom = 632.0
+theme_override_fonts/normal_font = ExtResource("8_q3rjx")
+bbcode_enabled = true
+text = "By: Ryan Tran"
+
+[node name="title" type="RichTextLabel" parent="CanvasLayer" unique_id=731308103]
+offset_left = 392.0
+offset_top = 224.0
+offset_right = 792.0
+offset_bottom = 312.0
+theme_override_fonts/normal_font = ExtResource("9_6swd7")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Super Cool Project"
+vertical_alignment = 1
+
+[node name="play" type="TextureButton" parent="CanvasLayer" unique_id=1000344541]
+offset_left = -104.0
+offset_top = 96.0
+offset_right = -64.0
+offset_bottom = 136.0
+
+[node name="quit" type="TextureButton" parent="CanvasLayer" unique_id=393898167]
+offset_left = -56.0
+offset_right = -16.0
+offset_bottom = 40.0
+
+[node name="start" type="Button" parent="CanvasLayer" unique_id=191405217]
+offset_left = 544.0
+offset_top = 320.0
+offset_right = 608.0
+offset_bottom = 360.0
+text = "play"
+
+[node name="stop" type="Button" parent="CanvasLayer" unique_id=1340117695]
+offset_left = 544.0
+offset_top = 384.0
+offset_right = 608.0
+offset_bottom = 424.0
+text = "quit"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=332030766]
+
+[node name="sun" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1759754426]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1918, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sun" unique_id=124172679]
+position = Vector2(960, 304.00003)
+scale = Vector2(0.5053741, 0.5053741)
+texture = ExtResource("2_q3rjx")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/sun" unique_id=1690536457]
+offset_top = -168.0
+offset_right = 1920.0
+color = Color(0.11372549, 0.25882354, 0.50980395, 1)
+
+[node name="sea" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1378564235]
+position = Vector2(-8, 8)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1918, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sea" unique_id=1657731832]
+position = Vector2(960, 304)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("3_6swd7")
+
+[node name="clouds" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1929741993]
+position = Vector2(0, 8)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1918, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/clouds" unique_id=1165676931]
+position = Vector2(960, 304)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("4_7qvly")
+
+[node name="mount" type="ParallaxLayer" parent="ParallaxBackground" unique_id=739024839]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1918, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/mount" unique_id=974398557]
+position = Vector2(960, 304)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("5_rfqti")
+
+[node name="sand" type="ParallaxLayer" parent="ParallaxBackground" unique_id=928721168]
+position = Vector2(0, 40)
+motion_mirroring = Vector2(1918, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sand" unique_id=1760197172]
+position = Vector2(960, 304)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("6_g8i7c")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2027271066]
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(1918, 0)
+
+[node name="foam" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6" unique_id=2065194630]
+position = Vector2(960, 344)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("7_23t3j")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1763746970]
+position = Vector2(576, 324)
+
+[connection signal="pressed" from="CanvasLayer/start" to="CanvasLayer" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/stop" to="CanvasLayer" method="_on_stop_pressed"]

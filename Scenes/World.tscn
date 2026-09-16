@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjkqlrkbqxh3a" path="res://Scenes/player.tscn" id="2_j0p05"]
 [ext_resource type="TileSet" uid="uid://cd4xll6qc3t7f" path="res://Assets/background/ste2.tres" id="4_45d1s"]
 [ext_resource type="PackedScene" uid="uid://cht18sjp2otu3" path="res://Scenes/enemyknight.tscn" id="4_y7y61"]
+[ext_resource type="PackedScene" uid="uid://cqn3w7i6ksd8g" path="res://Scenes/blueguynpc.tscn" id="6_45d1s"]
 
 [node name="Enviornment" type="Node2D" unique_id=258418600]
 script = ExtResource("1_gjpho")
@@ -24,6 +25,9 @@ tile_set = ExtResource("4_45d1s")
 [node name="SceneOverview" type="Sprite2D" parent="back2" unique_id=1301304679]
 position = Vector2(2448, -920)
 texture = ExtResource("2_gjpho")
+
+[node name="blueguynpc" parent="." unique_id=1442502241 instance=ExtResource("6_45d1s")]
+position = Vector2(-264, -328)
 
 [node name="Player" parent="." unique_id=162342464 instance=ExtResource("2_j0p05")]
 position = Vector2(0, 728)
