@@ -1,12 +1,14 @@
 extends Node2D
 
-@onready var player: CharacterBody2D = $CharacterBody2D
-@onready var anim: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
-@onready var camera: Camera2D = $CharacterBody2D/Camera2D
+@onready var player: CharacterBody2D = $player
+@onready var anim: AnimatedSprite2D = $player/AnimatedSprite2D
+@onready var camera: Camera2D = $player/Camera2D
 @onready var enemy_spawn_point: Marker2D = $Marker2D
 
 @onready var pop: Control = $popup/CanvasLayer/pop
 @onready var button: Button = $popup/CanvasLayer/pop/enter
+@onready var grid_container: GridContainer = $popup/CanvasLayer/pop/GridContainer
+
 
 var math_problems: Array[Dictionary] = []
 
@@ -14,6 +16,9 @@ var mathIndex: int
 
 var problemtype: int
 var action: String = ""
+
+var enemy_instance: CharacterBody2D
+var enemy_anim: AnimatedSprite2D
 
 func _ready() -> void:
 	
@@ -26,6 +31,9 @@ func _ready() -> void:
 	
 	anim.play("idle")
 	button.pressed.connect(_on_enter_pressed)
+
+
+
 
 
 func load_problems(path: String) -> void: # load array
@@ -63,16 +71,19 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	if enemy_scene == null:
 		push_error("No fight_scene set on the enemy that triggered this fight")
 		return
-	var enemy_instance = enemy_scene.instantiate()
+	enemy_instance = enemy_scene.instantiate()
 	enemy_instance.position = enemy_spawn_point.position
 	add_child(enemy_instance)
-
+	enemy_anim = enemy_instance.get_node("AnimatedSprite2D")
+	enemy_anim.animation_finished.connect(_on_enemy_animation_finished)
+	
 func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check answer and update lives
 	if action == "attack":
 		if prob[index].answer == ans:
 			print("gj")
+			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -1
 			pop.visible = false
-			get_tree().change_scene_to_file("res://Scenes/World.tscn")
+			play_locked_animation("take_damage")
 		else:
 			GlobalData.lives = GlobalData.lives - 1
 			pop.visible = false
@@ -90,7 +101,9 @@ func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check an
 			pop.visible = false
 
 func _on_enter_pressed() -> void: #submit
-	_answer(mathIndex, math_problems, GlobalData.entry)
+	if not GlobalData.entry == 0:
+		_answer(mathIndex, math_problems, GlobalData.entry)
+
 
 
 func _on_heal_pressed() -> void: # heal
@@ -114,3 +127,28 @@ func _on_button_pressed() -> void: # attack
 		mathIndex = randi_range(0, 29)
 		show_problem(mathIndex, math_problems)
 		pop.visible = true
+
+func on_win() -> void:
+	GlobalData.defeated_enemies.append(GlobalData.current_enemy_data.enemy_id)
+	get_tree().change_scene_to_file("res://Scenes/World.tscn")
+
+func set_buttons_disabled(value: bool) -> void:
+	for child in grid_container.get_children():
+		if child is Button:
+			child.disabled = value
+	$attack.disabled = value
+	$heal.disabled = value
+
+func play_locked_animation(anim_name: String) -> void: # death and damage
+	set_buttons_disabled(true)
+	if GlobalData.current_enemy_data.enemy_hp > 0:
+		enemy_anim.play("take_damage")
+	else:
+		enemy_anim.play("death")
+
+func _on_enemy_animation_finished() -> void:
+	if GlobalData.current_enemy_data.enemy_hp > 0:
+		enemy_anim.play("idle")
+	else:
+		on_win()
+	set_buttons_disabled(false)

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cqn3w7i6ksd8g"]
+
+[ext_resource type="Texture2D" uid="uid://dj3ypk78q6j6s" path="res://Assets/FREE_Kobold Warrior 2D Pixel Art/Sprites/with_outline/IDLE.png" id="1_0tnkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o843m"]
+atlas = ExtResource("1_0tnkw")
+region = Rect2(0, 0, 148, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmwy6"]
+atlas = ExtResource("1_0tnkw")
+region = Rect2(148, 0, 148, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3nrj"]
+atlas = ExtResource("1_0tnkw")
+region = Rect2(296, 0, 148, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw03n"]
+atlas = ExtResource("1_0tnkw")
+region = Rect2(444, 0, 148, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pggeg"]
+atlas = ExtResource("1_0tnkw")
+region = Rect2(592, 0, 148, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n73by"]
+atlas = ExtResource("1_0tnkw")
+region = Rect2(740, 0, 148, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7w6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o843m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmwy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3nrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw03n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pggeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n73by")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1jlh"]
+radius = 14.0
+height = 52.0
+
+[node name="blueguynpc" type="CharacterBody2D" unique_id=1442502241]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=477653826]
+sprite_frames = SubResource("SpriteFrames_d7w6g")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1928811301]
+position = Vector2(-14, 17)
+shape = SubResource("CapsuleShape2D_a1jlh")

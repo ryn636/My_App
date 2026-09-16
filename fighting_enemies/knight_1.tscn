@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d18lhjjssoj80" path="res://Assets/Outline/120x80_PNGSheets/_AttackCombo.png" id="2_yuy2k"]
 [ext_resource type="Texture2D" uid="uid://c23ybphdvn1g" path="res://Assets/Outline/120x80_PNGSheets/_Death.png" id="3_orxnv"]
 [ext_resource type="Texture2D" uid="uid://bn6jdorb4p6j3" path="res://Assets/Outline/120x80_PNGSheets/_Idle.png" id="4_70tey"]
+[ext_resource type="Texture2D" uid="uid://bmmja5yr8lr4g" path="res://Assets/Outline/120x80_PNGSheets/_Hit.png" id="5_gbqfi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6nij"]
 atlas = ExtResource("1_jddi3")
@@ -142,6 +143,10 @@ region = Rect2(960, 0, 120, 80)
 atlas = ExtResource("4_70tey")
 region = Rect2(1080, 0, 120, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqfi"]
+atlas = ExtResource("5_gbqfi")
+region = Rect2(0, 0, 120, 80)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_d7w6g"]
 animations = [{
 "frames": [{
@@ -157,7 +162,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ets3l")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 6.0
 }, {
@@ -192,7 +197,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8di2v")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack2",
 "speed": 5.0
 }, {
@@ -227,7 +232,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vmgnw")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 6.0
 }, {
@@ -265,6 +270,26 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqfi")
+}],
+"loop": 0,
+"name": &"take_damage",
+"speed": 5.0
 }]
 
 [node name="knight1" type="CharacterBody2D" unique_id=1550958170 groups=["fightenemy"]]
@@ -272,9 +297,9 @@ editor_description = "fight"
 script = ExtResource("1_yuy2k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2096239869]
+scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_d7w6g")
-animation = &"idle"
-frame_progress = 0.27545565
+animation = &"attack"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847230226]
