@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvdhjdadb10f1" path="res://Scripts/FIGHTING.gd" id="1_bq00v"]
 [ext_resource type="PackedScene" uid="uid://cjkqlrkbqxh3a" path="res://Scenes/player.tscn" id="2_bq00v"]
-[ext_resource type="Texture2D" uid="uid://fsoa8ys0gs2f" path="res://Assets/ChatGPT Image Sep 14, 2026, 10_01_02 PM.png" id="2_l8cav"]
+[ext_resource type="Texture2D" uid="uid://fsoa8ys0gs2f" path="res://Assets/background/ChatGPT Image Sep 14, 2026, 10_01_02 PM.png" id="2_l8cav"]
 [ext_resource type="PackedScene" uid="uid://6fe5wofegtcf" path="res://Scenes/popup.tscn" id="4_vvs45"]
 
 [node name="fight" type="Node2D" unique_id=235376421]

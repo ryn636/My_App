@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://chjnte7lm28x"]
+
+[node name="dialogue_display" type="Node2D" unique_id=1818380867]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=748045373]
+
+[node name="diagpop" type="Control" parent="CanvasLayer" unique_id=435942244]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="dial" type="Label" parent="CanvasLayer/diagpop" unique_id=1932464089]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 512.0
+offset_right = 744.0
+offset_bottom = 616.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/diagpop" unique_id=1715948042]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 498.0
+offset_right = 1001.0
+offset_bottom = 627.0
+color = Color(0.23632482, 0.48843724, 0.6350634, 1)

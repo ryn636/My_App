@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://b7qq6dn6v7dfc"
-path="res://.godot/imported/vinivicious.ttf-a9c57815c85b4b2bac04470e45d14d60.fontdata"
+uid="uid://bqiuq8da7sl28"
+path="res://.godot/imported/PixeloidSans.ttf-bbbfaa9aa65c8891685d9dedf88c1247.fontdata"
 
 [deps]
 
-source_file="res://buttons/vinivicious.ttf"
-dest_files=["res://.godot/imported/vinivicious.ttf-a9c57815c85b4b2bac04470e45d14d60.fontdata"]
+source_file="res://Assets/buttons/PixeloidSans.ttf"
+dest_files=["res://.godot/imported/PixeloidSans.ttf-bbbfaa9aa65c8891685d9dedf88c1247.fontdata"]
 
 [params]
 

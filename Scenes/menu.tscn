@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c6yvw0uabqseg"]
 
 [ext_resource type="Script" uid="uid://cyowhimcvll43" path="res://Scripts/menu.gd" id="1_wbdvm"]
-[ext_resource type="Script" uid="uid://bkv8tgqyihdwi" path="res://Scenes/menutxt.gd" id="2_6swd7"]
+[ext_resource type="Script" uid="uid://bkv8tgqyihdwi" path="res://Scripts/menutxt.gd" id="2_6swd7"]
 [ext_resource type="Texture2D" uid="uid://cqn50m6fooqi0" path="res://Assets/background/Ocean/0 ocean sky and sun.png" id="2_q3rjx"]
 [ext_resource type="Texture2D" uid="uid://pu2yipf4npqf" path="res://Assets/background/Ocean/1 ocean sea.png" id="3_6swd7"]
 [ext_resource type="Texture2D" uid="uid://dpbaj0iu2i3lv" path="res://Assets/background/Ocean/3 ocean clouds.png" id="4_7qvly"]
 [ext_resource type="Texture2D" uid="uid://cobtwcriy2dru" path="res://Assets/background/Ocean/4 ocean back mountain.png" id="5_rfqti"]
 [ext_resource type="Texture2D" uid="uid://b1qbhui2d1ru1" path="res://Assets/background/Ocean/5 ocean sand.png" id="6_g8i7c"]
 [ext_resource type="Texture2D" uid="uid://cpxo6rx228pqq" path="res://Assets/background/Ocean/6 ocean wave.png" id="7_23t3j"]
-[ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="8_q3rjx"]
-[ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="9_6swd7"]
+[ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://Assets/buttons/vinivicious.ttf" id="8_q3rjx"]
+[ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://Assets/buttons/PixeloidSans-Bold.ttf" id="9_6swd7"]
 
 [node name="menu" type="Node2D" unique_id=1824693103]
 script = ExtResource("1_wbdvm")
