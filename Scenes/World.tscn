@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://cd4xll6qc3t7f" path="res://Assets/background/ste2.tres" id="4_45d1s"]
 [ext_resource type="PackedScene" uid="uid://cht18sjp2otu3" path="res://Scenes/enemyknight.tscn" id="4_y7y61"]
 [ext_resource type="PackedScene" uid="uid://cqn3w7i6ksd8g" path="res://Scenes/blueguynpc.tscn" id="6_45d1s"]
-[ext_resource type="PackedScene" uid="uid://b77oysrk2vmb0" path="res://Scenes/dialogue_display.tscn" id="7_y7y61"]
 
 [node name="Enviornment" type="Node2D" unique_id=258418600]
 script = ExtResource("1_gjpho")
@@ -37,6 +36,3 @@ scale = Vector2(0.9, 0.9)
 [node name="blueguy" parent="." unique_id=1679060359 instance=ExtResource("4_y7y61")]
 position = Vector2(592, 320)
 motion_mode = 1
-
-[node name="dialogue_display" parent="." unique_id=1818380867 instance=ExtResource("7_y7y61")]
-visible = false
