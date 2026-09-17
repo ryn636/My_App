@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3exa3f3u4jiw"
-path="res://.godot/imported/buttons_23.png-618ae127f43a4f7768b9d6212726baf0.ctex"
+uid="uid://1lvrm5532nwq"
+path="res://.godot/imported/excalimation mark2.png-ab396e049e6bf452e962b5f107619b3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/buttons/buttons_23.png"
-dest_files=["res://.godot/imported/buttons_23.png-618ae127f43a4f7768b9d6212726baf0.ctex"]
+source_file="res://Assets/excalimation mark2.png"
+dest_files=["res://.godot/imported/excalimation mark2.png-ab396e049e6bf452e962b5f107619b3d.ctex"]
 
 [params]
 
