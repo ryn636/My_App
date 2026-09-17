@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqn3w7i6ksd8g"]
 
 [ext_resource type="Texture2D" uid="uid://dj3ypk78q6j6s" path="res://Assets/FREE_Kobold Warrior 2D Pixel Art/Sprites/with_outline/IDLE.png" id="1_0tnkw"]
-[ext_resource type="Script" uid="uid://cmbokmfdpr53u" path="res://Scripts/Blueguynpc_id.gd" id="1_o843m"]
+[ext_resource type="Script" uid="uid://cmbokmfdpr53u" path="res://Scenes/Blueguynpc_id.gd" id="1_o843m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o843m"]
 atlas = ExtResource("1_0tnkw")
