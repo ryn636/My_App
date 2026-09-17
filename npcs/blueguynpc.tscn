@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://cqn3w7i6ksd8g"]
+[gd_scene format=3 uid="uid://2ugx7ql3oukb"]
 
 [ext_resource type="Texture2D" uid="uid://dj3ypk78q6j6s" path="res://Assets/FREE_Kobold Warrior 2D Pixel Art/Sprites/with_outline/IDLE.png" id="1_0tnkw"]
-[ext_resource type="Script" uid="uid://cmbokmfdpr53u" path="res://Scenes/Blueguynpc_id.gd" id="1_o843m"]
+[ext_resource type="Script" path="res://npcs/blueguynpc.gd" id="1_c27se"]
+[ext_resource type="Texture2D" path="res://Assets/buttons/buttons_21.png" id="3_s3kua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o843m"]
 atlas = ExtResource("1_0tnkw")
@@ -58,10 +59,10 @@ radius = 14.0
 height = 52.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7w6g"]
-radius = 47.095646
+radius = 45.0
 
 [node name="blueguynpc" type="CharacterBody2D" unique_id=1442502241 groups=["npc"]]
-script = ExtResource("1_o843m")
+script = ExtResource("1_c27se")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=477653826]
 sprite_frames = SubResource("SpriteFrames_d7w6g")
@@ -72,8 +73,14 @@ autoplay = "idle"
 position = Vector2(-14, 17)
 shape = SubResource("CapsuleShape2D_a1jlh")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1966617437]
+[node name="Area2D" type="Area2D" parent="." unique_id=1104323489]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1491988734]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1767412752]
 position = Vector2(-14, 17)
 shape = SubResource("CircleShape2D_d7w6g")
+
+[node name="interac" type="Sprite2D" parent="." unique_id=1768813890]
+visible = false
+position = Vector2(-13, -38)
+texture = ExtResource("3_s3kua")
+flip_h = true
