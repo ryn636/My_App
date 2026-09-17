@@ -37,7 +37,7 @@ func _ready() -> void:
 
 
 func load_problems(path: String) -> void: # load array
-	var file = FileAccess.open("res://Assets/math/math_problems_mixed.csv", FileAccess.READ)
+	var file = FileAccess.open("res://Assets/math/math_problems_arithmetic.csv", FileAccess.READ)
 	if file == null:
 		push_error("Could not open %s" % path)
 		return
@@ -125,7 +125,7 @@ func _on_button_pressed() -> void: # attack
 	problemtype = randi_range(1,1)
 	if problemtype == 1:
 		load_problems("res://Assets/math/math_problems.csv")
-		mathIndex = randi_range(0, 29)
+		mathIndex = randi_range(0, len(math_problems)-1)
 		show_problem(mathIndex, math_problems)
 		pop.visible = true
 
