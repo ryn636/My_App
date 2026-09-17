@@ -49,10 +49,11 @@ color = Color(0.21176471, 0.3372549, 0.87058824, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/pop" unique_id=1836731343]
 layout_mode = 0
-offset_left = 488.0
-offset_top = 216.0
-offset_right = 680.0
-offset_bottom = 304.0
+offset_left = 504.0
+offset_top = 224.0
+offset_right = 614.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 32
 text = "2+2=4"
 
 [node name="ansbox" type="Label" parent="CanvasLayer/pop" unique_id=236505936]

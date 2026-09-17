@@ -5,6 +5,7 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=748045373]
 
 [node name="diagpop" type="Control" parent="CanvasLayer" unique_id=435942244]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

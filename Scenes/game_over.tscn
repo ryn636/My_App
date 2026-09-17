@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b13tcpgt74bh4"]
+
+[ext_resource type="Script" uid="uid://b7siuwf3rjhce" path="res://Scenes/game over.gd" id="1_8fo1c"]
+[ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="2_ek8ke"]
+
+[node name="Game Over" type="Node2D" unique_id=538845453]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1062907366]
+script = ExtResource("1_8fo1c")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1234184452]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1384385970]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+
+[node name="over" type="RichTextLabel" parent="CanvasLayer/Control" unique_id=1291162459]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 256.0
+offset_right = 928.0
+offset_bottom = 376.0
+theme_override_colors/default_color = Color(0.78671134, 0, 0.052971214, 1)
+theme_override_fonts/normal_font = ExtResource("2_ek8ke")
+theme_override_font_sizes/normal_font_size = 84
+bbcode_enabled = true
+text = "Game Over"
+
+[node name="quit" type="Button" parent="CanvasLayer/Control" unique_id=1648896719]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 448.0
+offset_right = 648.0
+offset_bottom = 528.0
+text = "quit
+"
+
+[connection signal="pressed" from="CanvasLayer/Control/quit" to="CanvasLayer" method="_on_button_pressed"]

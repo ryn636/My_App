@@ -31,13 +31,13 @@ func _ready() -> void:
 	
 	anim.play("idle")
 	button.pressed.connect(_on_enter_pressed)
-
+	anim.animation_finished.connect(_on_player_anim_finished)
 
 
 
 
 func load_problems(path: String) -> void: # load array
-	var file = FileAccess.open(path, FileAccess.READ)
+	var file = FileAccess.open("res://Assets/math/math_problems_mixed.csv", FileAccess.READ)
 	if file == null:
 		push_error("Could not open %s" % path)
 		return
@@ -83,14 +83,15 @@ func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check an
 			print("gj")
 			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -1
 			pop.visible = false
-			play_locked_animation("take_damage")
+			anim.play("attack")
+			play_locked_animation("enemy")
 		else:
 			GlobalData.lives = GlobalData.lives - 1
 			pop.visible = false
 			print(GlobalData.lives)
 			if GlobalData.lives <= 0:
 				print("game over")
-				get_tree().quit()
+			play_locked_animation("player") # parameter doesnt do jack
 	elif action == "heal":
 		if prob[index].answer == ans:
 			print("gj")
@@ -113,7 +114,7 @@ func _on_heal_pressed() -> void: # heal
 		return
 	problemtype = randi_range(1,1)
 	if problemtype == 1:
-		load_problems("res://Assets/math/math_problems.csv")
+		load_problems("res://Assets/math/math_problems_mixed.csv")
 		mathIndex = randi_range(0, 29)
 		show_problem(mathIndex, math_problems)
 		pop.visible = true
@@ -139,16 +140,28 @@ func set_buttons_disabled(value: bool) -> void:
 	$attack.disabled = value
 	$heal.disabled = value
 
-func play_locked_animation(anim_name: String) -> void: # death and damage
+func play_locked_animation(character: String) -> void: # death and damage
 	set_buttons_disabled(true)
-	if GlobalData.current_enemy_data.enemy_hp > 0:
-		enemy_anim.play("take_damage")
-	else:
-		enemy_anim.play("death")
+	if character == "player":
+		if GlobalData.lives > 0:
+			enemy_anim.play("attack")
+			anim.play("take_dmg")
+		elif GlobalData.lives <= 0:
+			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+	else: 
+		if GlobalData.current_enemy_data.enemy_hp > 0:
+			anim.play("attack")
+			enemy_anim.play("take_damage")
+		elif GlobalData.current_enemy_data.enemy_hp <= 0:
+			enemy_anim.play("death")
 
 func _on_enemy_animation_finished() -> void:
 	if GlobalData.current_enemy_data.enemy_hp > 0:
 		enemy_anim.play("idle")
 	else:
 		on_win()
+	set_buttons_disabled(false)
+
+func _on_player_anim_finished()-> void:
+	anim.play("idle")
 	set_buttons_disabled(false)
