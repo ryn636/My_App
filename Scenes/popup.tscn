@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6fe5wofegtcf"]
 
 [ext_resource type="Script" uid="uid://b5x88ilbdxc5k" path="res://Scripts/close.gd" id="1_2nprw"]
+[ext_resource type="FontFile" uid="uid://cgtteo61ob5ii" path="res://buttons/PixeloidMono.ttf" id="2_h4hm1"]
 [ext_resource type="Texture2D" uid="uid://cg5rk2ethvsr6" path="res://buttons/buttons_14.png" id="2_mtma1"]
 [ext_resource type="Texture2D" uid="uid://cnvuwvuajqyve" path="res://buttons/bases_02.png" id="2_vjsy5"]
 [ext_resource type="Texture2D" uid="uid://df12wg0n2jtp7" path="res://buttons/buttons_18.png" id="3_fx8xh"]
@@ -44,6 +45,7 @@ layout_mode = 0
 offset_top = 440.0
 offset_right = 1152.0
 offset_bottom = 648.0
+color = Color(0.21176471, 0.3372549, 0.87058824, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/pop" unique_id=1836731343]
 layout_mode = 0
@@ -55,17 +57,19 @@ text = "2+2=4"
 
 [node name="ansbox" type="Label" parent="CanvasLayer/pop" unique_id=236505936]
 layout_mode = 0
-offset_left = 680.0
-offset_top = 288.0
-offset_right = 840.0
-offset_bottom = 416.0
+offset_left = 935.0
+offset_top = 474.0
+offset_right = 1095.0
+offset_bottom = 602.0
+theme_override_fonts/font = ExtResource("2_h4hm1")
+theme_override_font_sizes/font_size = 64
 
 [node name="enter" type="Button" parent="CanvasLayer/pop" unique_id=511080955]
 layout_mode = 0
-offset_left = 937.0
-offset_top = 486.0
-offset_right = 987.0
-offset_bottom = 526.0
+offset_left = 675.0
+offset_top = 466.0
+offset_right = 725.0
+offset_bottom = 506.0
 scale = Vector2(2.52, 2.52)
 icon = ExtResource("2_mtma1")
 flat = true
@@ -181,15 +185,6 @@ flat = true
 layout_mode = 2
 icon = ExtResource("14_sdq6n")
 flat = true
-
-[node name="Label2" type="Label" parent="CanvasLayer/pop" unique_id=617422074]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 568.0
-offset_right = 376.0
-offset_bottom = 591.0
-theme_override_colors/font_color = Color(0, 1, 1, 1)
-text = "make the buttons press boi"
 
 [connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button1" to="CanvasLayer/pop" method="_on_button_1_pressed"]
 [connection signal="pressed" from="CanvasLayer/pop/GridContainer/Button2" to="CanvasLayer/pop" method="_on_button_2_pressed"]
