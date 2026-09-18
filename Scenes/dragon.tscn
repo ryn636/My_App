@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bnkr4xb4171km"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7w6g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8lic"]
+radius = 32.0
+
+[node name="Dragon" type="CharacterBody2D" unique_id=1151536087]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=966762374]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1058463298]
+shape = SubResource("CircleShape2D_d7w6g")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=639549954]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=980878995]
+position = Vector2(-12, 23)
+shape = SubResource("CircleShape2D_g8lic")

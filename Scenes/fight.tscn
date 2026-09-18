@@ -2,8 +2,21 @@
 
 [ext_resource type="Script" uid="uid://dvdhjdadb10f1" path="res://Scripts/FIGHTING.gd" id="1_bq00v"]
 [ext_resource type="PackedScene" uid="uid://cjkqlrkbqxh3a" path="res://Scenes/player.tscn" id="2_bq00v"]
-[ext_resource type="Texture2D" uid="uid://fsoa8ys0gs2f" path="res://Assets/ChatGPT Image Sep 14, 2026, 10_01_02 PM.png" id="2_l8cav"]
+[ext_resource type="Texture2D" uid="uid://fsoa8ys0gs2f" path="res://Assets/Outline/ChatGPT Image Sep 14, 2026, 10_01_02 PM.png" id="2_l8cav"]
+[ext_resource type="FontFile" uid="uid://bqiuq8da7sl28" path="res://buttons/PixeloidSans.ttf" id="4_f2wba"]
 [ext_resource type="PackedScene" uid="uid://6fe5wofegtcf" path="res://Scenes/popup.tscn" id="4_vvs45"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1jlh"]
+bg_color = Color(0.94860774, 0.39104468, 0.4167079, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p2qw"]
+bg_color = Color(0.3681665, 0.6891944, 0.32908162, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02tnk"]
+bg_color = Color(0.17161009, 0.17161009, 0.17161009, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilxdk"]
+bg_color = Color(1, 0.05882353, 0.3529412, 1)
 
 [node name="fight" type="Node2D" unique_id=235376421]
 script = ExtResource("1_bq00v")
@@ -18,23 +31,43 @@ position = Vector2(312, 448)
 scale = Vector2(2, 2)
 
 [node name="attack" type="Button" parent="." unique_id=937329310]
-offset_left = 560.0
-offset_top = 520.0
-offset_right = 696.0
+offset_left = 424.0
+offset_top = 560.0
+offset_right = 560.0
 offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("4_f2wba")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_a1jlh")
 text = "attack"
 
 [node name="heal" type="Button" parent="." unique_id=1830234930]
-offset_left = 392.0
-offset_top = 520.0
-offset_right = 536.0
-offset_bottom = 624.0
+offset_left = 640.0
+offset_top = 560.0
+offset_right = 776.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("4_f2wba")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4p2qw")
 text = "heal"
 
 [node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_vvs45")]
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1218140442]
 position = Vector2(912, 332)
+
+[node name="healthbar" type="ProgressBar" parent="." unique_id=1253289567]
+offset_left = 244.0
+offset_top = 337.0
+offset_right = 399.0
+offset_bottom = 352.0
+theme_override_styles/background = SubResource("StyleBoxFlat_02tnk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ilxdk")
+max_value = 3.0
+value = 1.0
+show_percentage = false
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1871440494]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="attack" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="heal" to="." method="_on_heal_pressed"]

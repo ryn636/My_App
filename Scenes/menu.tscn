@@ -11,6 +11,24 @@
 [ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="8_q3rjx"]
 [ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="9_6swd7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfqti"]
+bg_color = Color(0.2, 0.22745098, 0.23921569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ph6h"]
+bg_color = Color(0.15465423, 0.17241362, 0.18425512, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23t3j"]
+bg_color = Color(0.27058825, 0.27058825, 0.27058825, 0.7882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qvly"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ti5v"]
+bg_color = Color(0.23031491, 0.23031494, 0.23031485, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1by5w"]
+bg_color = Color(0.34117648, 0.34117648, 0.34117648, 0.7882353)
+
 [node name="menu" type="Node2D" unique_id=1824693103]
 script = ExtResource("1_wbdvm")
 
@@ -37,30 +55,27 @@ bbcode_enabled = true
 text = "Super Cool Project"
 vertical_alignment = 1
 
-[node name="play" type="TextureButton" parent="CanvasLayer" unique_id=1000344541]
-offset_left = -104.0
-offset_top = 96.0
-offset_right = -64.0
-offset_bottom = 136.0
+[node name="quit" type="Button" parent="CanvasLayer" unique_id=1893081373]
+offset_left = 536.0
+offset_top = 368.0
+offset_right = 616.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("8_q3rjx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rfqti")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ph6h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_23t3j")
+text = "QUIT"
 
-[node name="quit" type="TextureButton" parent="CanvasLayer" unique_id=393898167]
-offset_left = -56.0
-offset_right = -16.0
-offset_bottom = 40.0
-
-[node name="start" type="Button" parent="CanvasLayer" unique_id=191405217]
-offset_left = 544.0
-offset_top = 320.0
-offset_right = 608.0
-offset_bottom = 360.0
-text = "play"
-
-[node name="stop" type="Button" parent="CanvasLayer" unique_id=1340117695]
-offset_left = 544.0
-offset_top = 384.0
-offset_right = 608.0
-offset_bottom = 424.0
-text = "quit"
+[node name="play" type="Button" parent="CanvasLayer" unique_id=1486145970]
+offset_left = 536.0
+offset_top = 312.0
+offset_right = 616.0
+offset_bottom = 352.0
+theme_override_fonts/font = ExtResource("8_q3rjx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7qvly")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5ti5v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1by5w")
+text = "PLAY"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=332030766]
 
@@ -126,7 +141,7 @@ scale = Vector2(0.505, 0.505)
 texture = ExtResource("7_23t3j")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1763746970]
-position = Vector2(576, 324)
+position = Vector2(576, 323)
 
-[connection signal="pressed" from="CanvasLayer/start" to="CanvasLayer" method="_on_start_pressed"]
-[connection signal="pressed" from="CanvasLayer/stop" to="CanvasLayer" method="_on_stop_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit" to="CanvasLayer" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer" method="_on_play_pressed"]

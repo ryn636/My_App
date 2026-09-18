@@ -8,6 +8,7 @@ extends Node2D
 @onready var pop: Control = $popup/CanvasLayer/pop
 @onready var button: Button = $popup/CanvasLayer/pop/enter
 @onready var grid_container: GridContainer = $popup/CanvasLayer/pop/GridContainer
+@onready var healthbar: ProgressBar = $healthbar
 
 
 var math_problems: Array[Dictionary] = []
@@ -19,9 +20,10 @@ var action: String = ""
 
 var enemy_instance: CharacterBody2D
 var enemy_anim: AnimatedSprite2D
+var enemy_health: ProgressBar
 
 func _ready() -> void:
-	
+	healthbar.value = healthbar.max_value
 	pop.visible = false
 	player.set_physics_process(false)
 	camera.enabled = false
@@ -75,31 +77,34 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	enemy_instance.position = enemy_spawn_point.position
 	add_child(enemy_instance)
 	enemy_anim = enemy_instance.get_node("AnimatedSprite2D")
+	enemy_health = enemy_instance.get_node("enemyheal") # all henemy healthbars have to be named enemyheal
 	enemy_anim.animation_finished.connect(_on_enemy_animation_finished)
+	enemy_health.value = GlobalData.current_enemy_data.enemy_hp
 	
 func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check answer and update lives
 	if action == "attack":
-		if prob[index].answer == ans:
-			print("gj")
+		if prob[index].answer == ans: 				# success
 			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -1
 			pop.visible = false
+			enemy_health.value -= 1
 			anim.play("attack")
 			play_locked_animation("enemy")
-		else:
+		else: 										# fail
 			GlobalData.lives = GlobalData.lives - 1
+			healthbar.value = GlobalData.lives
 			pop.visible = false
 			print(GlobalData.lives)
-			if GlobalData.lives <= 0:
-				print("game over")
 			play_locked_animation("player") # parameter doesnt do jack
 	elif action == "heal":
-		if prob[index].answer == ans:
-			print("gj")
+		if prob[index].answer == ans:				# success
 			GlobalData.lives = GlobalData.lives + 1
-			print(GlobalData.lives)
+			healthbar.value = GlobalData.lives
 			pop.visible = false
-		else:
+		else:										# fail
 			pop.visible = false
+			GlobalData.lives = GlobalData.lives - 1
+			healthbar.value = GlobalData.lives
+			play_locked_animation("player")
 
 func _on_enter_pressed() -> void: #submit
 	if not GlobalData.entry == 0:
@@ -130,6 +135,7 @@ func _on_button_pressed() -> void: # attack
 		pop.visible = true
 
 func on_win() -> void:
+	GlobalData.lives = 3
 	GlobalData.defeated_enemies.append(GlobalData.current_enemy_data.enemy_id)
 	get_tree().change_scene_to_file("res://Scenes/World.tscn")
 
