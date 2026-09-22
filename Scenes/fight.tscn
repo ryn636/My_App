@@ -18,6 +18,11 @@ bg_color = Color(0.17161009, 0.17161009, 0.17161009, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilxdk"]
 bg_color = Color(1, 0.05882353, 0.3529412, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juw6f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n0pc"]
+bg_color = Color(0.23324132, 0.64096886, 0.8700788, 1)
+
 [node name="fight" type="Node2D" unique_id=235376421]
 script = ExtResource("1_bq00v")
 
@@ -68,6 +73,22 @@ show_percentage = false
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1871440494]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Timer" type="Timer" parent="." unique_id=68167974]
+process_callback = 0
+wait_time = 15.0
+one_shot = true
+
+[node name="combometer" type="ProgressBar" parent="." unique_id=1110827317]
+offset_left = 344.0
+offset_top = 64.0
+offset_right = 872.0
+offset_bottom = 88.0
+theme_override_styles/background = SubResource("StyleBoxFlat_juw6f")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1n0pc")
+min_value = 100.0
+value = 100.0
+show_percentage = false
 
 [connection signal="pressed" from="attack" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="heal" to="." method="_on_heal_pressed"]

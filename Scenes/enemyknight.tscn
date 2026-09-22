@@ -242,6 +242,7 @@ editor_description = "change the enemy_knight script so that the
   delete the aspects of the code that make the knight return after a certain time chasing, keep the return home parts"
 script = ExtResource("1_wdy77")
 fight_scene = ExtResource("2_7gcxt")
+enemy_hp = 10
 
 [node name="knight" type="AnimatedSprite2D" parent="." unique_id=1023098773]
 position = Vector2(-4, -32)

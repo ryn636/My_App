@@ -9,6 +9,8 @@ extends Node2D
 @onready var button: Button = $popup/CanvasLayer/pop/enter
 @onready var grid_container: GridContainer = $popup/CanvasLayer/pop/GridContainer
 @onready var healthbar: ProgressBar = $healthbar
+@onready var timer: Timer = $Timer
+@onready var combometer: ProgressBar = $combometer
 
 
 var math_problems: Array[Dictionary] = []
@@ -22,14 +24,22 @@ var enemy_instance: CharacterBody2D
 var enemy_anim: AnimatedSprite2D
 var enemy_health: ProgressBar
 
+var correct: int = 0
+var damageMult: int = 1
+var inCombo: bool = false
+
 func _ready() -> void:
+	# healthbar.max_value = player health
 	healthbar.value = healthbar.max_value
 	pop.visible = false
 	player.set_physics_process(false)
 	camera.enabled = false
+	combometer.visible = false
 	
 	var data = GlobalData.current_enemy_data
 	spawn_enemy(data.fight_scene)
+	
+	
 	
 	anim.play("idle")
 	button.pressed.connect(_on_enter_pressed)
@@ -79,12 +89,15 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	enemy_anim = enemy_instance.get_node("AnimatedSprite2D")
 	enemy_health = enemy_instance.get_node("enemyheal") # all henemy healthbars have to be named enemyheal
 	enemy_anim.animation_finished.connect(_on_enemy_animation_finished)
+	enemy_health.max_value = GlobalData.current_enemy_data.enemy_hp
 	enemy_health.value = GlobalData.current_enemy_data.enemy_hp
 	
 func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check answer and update lives
 	if action == "attack":
 		if prob[index].answer == ans: 				# success
-			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -1
+			correct += 1
+			startCombo()
+			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -(1 * damageMult)
 			pop.visible = false
 			enemy_health.value -= 1
 			anim.play("attack")
@@ -171,3 +184,20 @@ func _on_enemy_animation_finished() -> void:
 func _on_player_anim_finished()-> void:
 	anim.play("idle")
 	set_buttons_disabled(false)
+	
+func startCombo() ->void:
+	inCombo = true
+	timer.wait_time = 16 - correct*correct
+	timer.start()
+	combometer.max_value = timer.wait_time
+	combometer.visible = true
+	damageMult += 1 
+
+func _physics_process(delta: float) -> void:
+	if inCombo == true:
+		combometer.value = timer.wait_time - timer.time_left
+		if timer.time_left == 0:
+			correct = 0
+			damageMult = 1
+			combometer.visible = false
+			inCombo = false
