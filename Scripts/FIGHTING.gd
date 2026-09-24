@@ -25,7 +25,7 @@ var enemy_anim: AnimatedSprite2D
 var enemy_health: ProgressBar
 
 var correct: int = 0
-var damageMult: int = 1
+var damageMult: int
 var inCombo: bool = false
 
 func _ready() -> void:
@@ -34,7 +34,9 @@ func _ready() -> void:
 	pop.visible = false
 	player.set_physics_process(false)
 	camera.enabled = false
+	
 	combometer.visible = false
+	damageMult = 1
 	
 	var data = GlobalData.current_enemy_data
 	spawn_enemy(data.fight_scene)
@@ -99,7 +101,7 @@ func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check an
 			startCombo()
 			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -(1 * damageMult)
 			pop.visible = false
-			enemy_health.value -= 1
+			enemy_health.value = GlobalData.current_enemy_data.enemy_hp
 			anim.play("attack")
 			play_locked_animation("enemy")
 		else: 										# fail
@@ -187,17 +189,22 @@ func _on_player_anim_finished()-> void:
 	
 func startCombo() ->void:
 	inCombo = true
-	timer.wait_time = 16 - correct*correct
+	timer.wait_time = 16.0 * pow(0.75, correct - 1)
+	combometer.max_value = timer.wait_time  # this should now match
+	combometer.value = timer.wait_time
 	timer.start()
-	combometer.max_value = timer.wait_time
 	combometer.visible = true
-	damageMult += 1 
+	damageMult += 1
+	print("wait_time: ", timer.wait_time, " max_value: ", combometer.max_value)
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if inCombo == true:
-		combometer.value = timer.wait_time - timer.time_left
-		if timer.time_left == 0:
-			correct = 0
-			damageMult = 1
-			combometer.visible = false
-			inCombo = false
+		combometer.value = timer.time_left
+		print(timer.time_left, " / ", combometer.max_value)
+
+
+func _on_timer_timeout() -> void:
+	correct = 0
+	damageMult = 1
+	combometer.visible = false
+	inCombo = false
