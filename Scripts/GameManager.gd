@@ -62,12 +62,10 @@ func _on_npc_area_entered(body: Node2D, enemy: CharacterBody2D) -> void:
 		
 
 func _on_npc_area_exited(body: Node2D, enemy: CharacterBody2D) -> void:
-	pass
 	if body.is_in_group("player"):
 		in_area = false
 		
 func load_dialogue(npc_name: String) -> Array:
-	pass
 	var path = "res://Assets/npc_diag/%s.json" % npc_name
 	print("Trying to open: ", path)
 	print(ProjectSettings.globalize_path("res://Assets/npc_diag/blueguynpc.json"))
@@ -84,8 +82,6 @@ func load_dialogue(npc_name: String) -> Array:
 	return data
 
 func _input(event: InputEvent) -> void:
-	pass
-	pass
 	if not in_area:
 		return
 	if event is InputEventKey:

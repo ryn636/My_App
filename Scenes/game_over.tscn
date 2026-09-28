@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b13tcpgt74bh4"]
 
-[ext_resource type="Script" uid="uid://b7siuwf3rjhce" path="res://Scenes/game over.gd" id="1_8fo1c"]
+[ext_resource type="Script" uid="uid://b7siuwf3rjhce" path="res://Scripts/game over.gd" id="1_8fo1c"]
 [ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="2_ek8ke"]
 
 [node name="Game Over" type="Node2D" unique_id=538845453]

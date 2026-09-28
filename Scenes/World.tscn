@@ -43,18 +43,17 @@ tile_map_data = PackedByteArray("AAD9//D/AgAKABIAAAD9//H/AgAKABMAAAD+//D/AgALABI
 tile_set = ExtResource("4_45d1s")
 
 [node name="blueguynpc" parent="." unique_id=1442502241 instance=ExtResource("6_45d1s")]
-visible = false
 position = Vector2(-264, -328)
 
 [node name="Player" parent="." unique_id=162342464 instance=ExtResource("2_j0p05")]
 position = Vector2(0, 728)
 scale = Vector2(0.9, 0.9)
 
-[node name="blueguy" parent="." unique_id=1679060359 instance=ExtResource("4_y7y61")]
+[node name="enemy_knight" parent="." unique_id=1679060359 instance=ExtResource("4_y7y61")]
 position = Vector2(592, 320)
 motion_mode = 1
 
-[node name="blueguy2" parent="." unique_id=1168651424 instance=ExtResource("4_y7y61")]
+[node name="enemy_knight2" parent="." unique_id=1168651424 instance=ExtResource("4_y7y61")]
 position = Vector2(611, -619)
 motion_mode = 1
 enemy_id = "knight_2"

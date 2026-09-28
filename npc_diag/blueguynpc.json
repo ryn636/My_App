@@ -1,6 +1,7 @@
 {
-	"blueguynpc": [
-	  { "speaker": "Blue Guy", "text": "yo wsp" },
-	  { "speaker": "Blue Guy", "text": "i said yo, bro" }
-	]
+    "npc_id": "villager",
+    "dialogue": [
+        "Hello there, traveler! What brings you to these parts?",
+        "Safe travels, and watch out for the monsters to the east."
+    ]
 }
