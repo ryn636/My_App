@@ -10,7 +10,7 @@ extends Node2D
 @onready var grid_container: GridContainer = $popup/CanvasLayer/pop/GridContainer
 @onready var healthbar: ProgressBar = $healthbar
 @onready var timer: Timer = $Timer
-@onready var combometer: ProgressBar = $combometer
+@onready var combometer: ProgressBar = $CanvasLayer/combometer
 
 
 var math_problems: Array[Dictionary] = []
@@ -109,6 +109,12 @@ func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check an
 			healthbar.value = GlobalData.lives
 			pop.visible = false
 			print(GlobalData.lives)
+			
+			correct = 0
+			damageMult = 1
+			combometer.visible = false
+			inCombo = false
+			
 			play_locked_animation("player") # parameter doesnt do jack
 	elif action == "heal":
 		if prob[index].answer == ans:				# success
@@ -195,13 +201,10 @@ func startCombo() ->void:
 	timer.start()
 	combometer.visible = true
 	damageMult += 1
-	print("wait_time: ", timer.wait_time, " max_value: ", combometer.max_value)
 
 func _process(delta: float) -> void:
 	if inCombo == true:
 		combometer.value = timer.time_left
-		print(timer.time_left, " / ", combometer.max_value)
-
 
 func _on_timer_timeout() -> void:
 	correct = 0

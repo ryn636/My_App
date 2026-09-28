@@ -21,7 +21,6 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1055823231]
 
 [node name="pop" type="Control" parent="CanvasLayer" unique_id=808564840]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -59,12 +58,12 @@ text = "2+2=4"
 
 [node name="ansbox" type="Label" parent="CanvasLayer/pop" unique_id=236505936]
 layout_mode = 0
-offset_left = 935.0
-offset_top = 474.0
-offset_right = 1095.0
-offset_bottom = 602.0
+offset_left = 804.0
+offset_top = 479.0
+offset_right = 1124.0
+offset_bottom = 640.0
 theme_override_fonts/font = ExtResource("2_h4hm1")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 48
 
 [node name="enter" type="Button" parent="CanvasLayer/pop" unique_id=511080955]
 layout_mode = 0

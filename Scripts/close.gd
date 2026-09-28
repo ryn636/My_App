@@ -73,3 +73,15 @@ func _on_button_0_pressed() -> void:
 func _on_buttonx_pressed() -> void:
 	ansbox.text = ansbox.text.substr(0, ansbox.text.length()-1)
 	GlobalData.entry = int(ansbox.text)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode >= KEY_0 and event.keycode <= KEY_9:
+			var number = event.keycode - KEY_0
+			if ansbox.text.length() < 10:
+				ansbox.text += str(number)
+				GlobalData.entry = int(ansbox.text)
+		elif event.keycode == KEY_BACKSPACE:
+			if ansbox.text.length() > 0:
+				ansbox.text = ansbox.text.left(ansbox.text.length() - 1)
+			GlobalData.entry = int(ansbox.text) if ansbox.text != "" else 0
