@@ -10,7 +10,7 @@ extends Node2D
 @onready var grid_container: GridContainer = $popup/CanvasLayer/pop/GridContainer
 @onready var healthbar: ProgressBar = $healthbar
 @onready var timer: Timer = $Timer
-@onready var combometer: ProgressBar = $combometer
+@onready var combometer: ProgressBar = $CanvasLayer/combometer
 
 
 var math_problems: Array[Dictionary] = []
@@ -44,7 +44,7 @@ func _ready() -> void:
 	
 	
 	anim.play("idle")
-	button.pressed.connect(_on_enter_pressed)
+	button.pressed.connect(_on_enter_button_pressed)
 	anim.animation_finished.connect(_on_player_anim_finished)
 
 
@@ -105,10 +105,14 @@ func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check an
 			anim.play("attack")
 			play_locked_animation("enemy")
 		else: 										# fail
-			GlobalData.lives = GlobalData.lives - 1
+			GlobalData.lives -= 1
 			healthbar.value = GlobalData.lives
 			pop.visible = false
 			print(GlobalData.lives)
+			correct = 0
+			damageMult = 1
+			combometer.visible = false
+			inCombo = false
 			play_locked_animation("player") # parameter doesnt do jack
 	elif action == "heal":
 		if prob[index].answer == ans:				# success
@@ -120,8 +124,8 @@ func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check an
 			GlobalData.lives = GlobalData.lives - 1
 			healthbar.value = GlobalData.lives
 			play_locked_animation("player")
-
-func _on_enter_pressed() -> void: #submit
+			
+func _on_enter_button_pressed() -> void: #submit
 	if not GlobalData.entry == 0:
 		_answer(mathIndex, math_problems, GlobalData.entry)
 
@@ -200,8 +204,9 @@ func startCombo() ->void:
 func _process(delta: float) -> void:
 	if inCombo == true:
 		combometer.value = timer.time_left
-		print(timer.time_left, " / ", combometer.max_value)
-
+	if pop.visible and Input.is_action_just_pressed("enter"):
+		if not GlobalData.entry == 0:
+			_answer(mathIndex, math_problems, GlobalData.entry)
 
 func _on_timer_timeout() -> void:
 	correct = 0
