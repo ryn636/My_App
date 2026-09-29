@@ -54,23 +54,19 @@ func _on_trigger_entered(body: Node2D, enemy: CharacterBody2D) -> void: # knight
 		get_tree().call_deferred("change_scene_to_file", "res://Scenes/fight.tscn")
 
 func _on_npc_area_entered(body: Node2D, enemy: CharacterBody2D) -> void:
-	pass
 	if body.is_in_group("player"):
 		in_area = true
-		print("NPC id is: '", enemy.id, "'")
 		dialogue = load_dialogue(enemy.id) # json file must be named blueguynpc
 		
 
 func _on_npc_area_exited(body: Node2D, enemy: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		in_area = false
+		dialogue_display.visible = false
 		
 func load_dialogue(npc_name: String) -> Array:
-	var path = "res://Assets/npc_diag/%s.json" % npc_name
-	print("Trying to open: ", path)
-	print(ProjectSettings.globalize_path("res://Assets/npc_diag/blueguynpc.json"))
+	var path = "res://npc_diag/%s.json" % npc_name
 	var file = FileAccess.open(path, FileAccess.READ)
-	print("File exists check: ", FileAccess.file_exists(path))
 	if file == null:
 		push_error("Could not open dialogue file for %s" % npc_name)
 		return []
@@ -78,27 +74,29 @@ func load_dialogue(npc_name: String) -> Array:
 	if data == null:
 		push_error("Invalid JSON in dialogue file for %s" % npc_name)
 		return []
-	var line = JSON.parse_string(file.get_as_text())
-	return data
+	file.close()
+	return data["dialogue"]
 
 func _input(event: InputEvent) -> void:
 	if not in_area:
 		return
-	if event is InputEventKey:
-		if event.physical_keycode == KEY_E and in_area:  # single press
-				dialogue_display.visible = true
-	
-	if event.is_action_pressed("ui_accept") and dialogue_display.visible == true and in_area:
-		next_line()
+	if event is InputEventKey and in_area:
+		if event.physical_keycode == KEY_E and not event.is_echo():  # single press
+			dialogue_display.visible = true
+			curr_diag_index = -1 
+			next_line()
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if dialogue_display.visible:
+				next_line()
 		
 		
 func next_line() ->void:
-	pass
 	curr_diag_index += 1
 	if curr_diag_index >= len(dialogue):
 		dialogue_display.visible = false
 		return
 		
-	$textLabel.text = dialogue[curr_diag_index]
+	textLabel.text = dialogue[curr_diag_index]
 		
 	

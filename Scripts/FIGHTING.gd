@@ -157,6 +157,7 @@ func on_win() -> void:
 	GlobalData.lives = 3
 	GlobalData.defeated_enemies.append(GlobalData.current_enemy_data.enemy_id)
 	get_tree().change_scene_to_file("res://Scenes/World.tscn")
+	
 
 func set_buttons_disabled(value: bool) -> void:
 	for child in grid_container.get_children():

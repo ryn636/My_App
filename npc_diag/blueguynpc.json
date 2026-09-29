@@ -1,7 +1,8 @@
 {
-    "npc_id": "villager",
-    "dialogue": [
-        "Hello there, traveler! What brings you to these parts?",
-        "Safe travels, and watch out for the monsters to the east."
-    ]
+	"npc_id": "blueguy",
+	"dialogue": [
+		"Oh! I didn't see you. Hello there.",
+		"That knight by the ruins stole something of mine...",
+		"Could you please deal with him?"
+	]
 }

@@ -58,7 +58,7 @@ radius = 14.0
 height = 52.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7w6g"]
-radius = 47.095646
+radius = 78.00641
 
 [node name="blueguynpc" type="CharacterBody2D" unique_id=1442502241 groups=["npc"]]
 script = ExtResource("1_o843m")
