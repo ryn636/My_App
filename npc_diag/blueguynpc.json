@@ -4,5 +4,9 @@
 		"Oh! I didn't see you. Hello there.",
 		"That knight by the ruins stole something of mine...",
 		"Could you please deal with him?"
+	],
+	"blueguynpc_after_defeat": [
+		"You defeated the knight? Impressive!",
+        "Here's a reward."
 	]
 }

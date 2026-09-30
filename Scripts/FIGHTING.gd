@@ -200,9 +200,8 @@ func startCombo() ->void:
 	timer.start()
 	combometer.visible = true
 	damageMult += 1
-	print("wait_time: ", timer.wait_time, " max_value: ", combometer.max_value)
-
-func _process(delta: float) -> void:
+	
+func _process(_delta: float) -> void:
 	if inCombo == true:
 		combometer.value = timer.time_left
 	if pop.visible and Input.is_action_just_pressed("enter"):

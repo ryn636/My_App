@@ -16,7 +16,6 @@ var curr_diag_index: int = 0
 var in_area: bool = false
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if GlobalData.has_return_position:
@@ -56,15 +55,17 @@ func _on_trigger_entered(body: Node2D, enemy: CharacterBody2D) -> void: # knight
 func _on_npc_area_entered(body: Node2D, enemy: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		in_area = true
-		dialogue = load_dialogue(enemy.id) # json file must be named blueguynpc
-		
+		if not GlobalData.defeated_enemies.has("knight_1"):
+			dialogue = load_dialogue(enemy.id, "dialogue") # json file must be named blueguynpc
+		else:
+			dialogue = load_dialogue(enemy.id, "blueguynpc_after_defeat")
 
 func _on_npc_area_exited(body: Node2D, enemy: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		in_area = false
 		dialogue_display.visible = false
 		
-func load_dialogue(npc_name: String) -> Array:
+func load_dialogue(npc_name: String, key: String) -> Array:
 	var path = "res://npc_diag/%s.json" % npc_name
 	var file = FileAccess.open(path, FileAccess.READ)
 	if file == null:
@@ -75,7 +76,7 @@ func load_dialogue(npc_name: String) -> Array:
 		push_error("Invalid JSON in dialogue file for %s" % npc_name)
 		return []
 	file.close()
-	return data["dialogue"]
+	return data[key]
 
 func _input(event: InputEvent) -> void:
 	if not in_area:

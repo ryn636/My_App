@@ -10,6 +10,7 @@
 
 [node name="Enviornment" type="Node2D" unique_id=258418600]
 script = ExtResource("1_gjpho")
+d_file = "<null>"
 
 [node name="back2" type="Node2D" parent="." unique_id=681732118]
 
