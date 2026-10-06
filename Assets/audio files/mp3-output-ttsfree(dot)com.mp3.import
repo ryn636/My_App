@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://berivnhow3gjc"
+path="res://.godot/imported/mp3-output-ttsfree(dot)com.mp3-2b84d914611f23eb708870194b63ddd0.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio files/mp3-output-ttsfree(dot)com.mp3"
+dest_files=["res://.godot/imported/mp3-output-ttsfree(dot)com.mp3-2b84d914611f23eb708870194b63ddd0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

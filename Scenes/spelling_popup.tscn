@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bj7t372jx4lvw"]
+
+[ext_resource type="Script" uid="uid://lrkrsbo2lrju" path="res://Scripts/spellingpop.gd" id="2_ix8eh"]
+[ext_resource type="AudioStream" uid="uid://berivnhow3gjc" path="res://Assets/audio files/mp3-output-ttsfree(dot)com.mp3" id="2_vg3tt"]
+[ext_resource type="Texture2D" uid="uid://ccskomq3e8agw" path="res://Assets/BlueButtons/audiobut.tres" id="3_b7j6u"]
+[ext_resource type="Texture2D" uid="uid://swc3yx2fy1tr" path="res://Scenes/SmallQuitButton.png" id="4_vg3tt"]
+
+[node name="spelling popup" type="Node2D" unique_id=1376857037]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2016618591]
+
+[node name="spellingpop" type="Control" parent="CanvasLayer" unique_id=1181361155]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 4.0
+offset_bottom = 15.0
+script = ExtResource("2_ix8eh")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/spellingpop" unique_id=109893392]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 448.0
+
+[node name="ans" type="Label" parent="CanvasLayer/spellingpop" unique_id=479032413]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 232.0
+offset_right = 744.0
+offset_bottom = 359.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/spellingpop" unique_id=1321110212]
+stream = ExtResource("2_vg3tt")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/spellingpop" unique_id=1336779060]
+layout_mode = 0
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.54439485, 0.5899429, 0.91793495, 1)
+
+[node name="playaudio" type="TextureButton" parent="CanvasLayer/spellingpop" unique_id=1021613674]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 256.0
+offset_right = 416.0
+offset_bottom = 352.0
+texture_normal = ExtResource("3_b7j6u")
+stretch_mode = 4
+
+[node name="enter" type="TextureButton" parent="CanvasLayer/spellingpop" unique_id=1102429122]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 496.0
+offset_right = 1048.0
+offset_bottom = 600.0
+texture_normal = ExtResource("4_vg3tt")
+stretch_mode = 4
+
+[connection signal="pressed" from="CanvasLayer/spellingpop/playaudio" to="CanvasLayer/spellingpop" method="_on_texture_button_pressed"]

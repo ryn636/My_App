@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bxp5fwqpbc2x6"
+
+[deps]
+
+files=["res://Assets/spelling/spelling_words.word.translation", "res://Assets/spelling/spelling_words.answer.translation", "res://Assets/spelling/spelling_words.difficulty.translation"]
+
+source_file="res://Assets/spelling/spelling_words.csv"
+dest_files=["res://Assets/spelling/spelling_words.word.translation", "res://Assets/spelling/spelling_words.answer.translation", "res://Assets/spelling/spelling_words.difficulty.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -6,19 +6,29 @@ extends Node2D
 @onready var enemy_spawn_point: Marker2D = $Marker2D
 
 @onready var pop: Control = $popup/CanvasLayer/pop
+@onready var spelling_popup: Control = $"spelling_popup/CanvasLayer/spellingpop"
+
+
 @onready var button: Button = $popup/CanvasLayer/pop/enter
 @onready var grid_container: GridContainer = $popup/CanvasLayer/pop/GridContainer
 @onready var healthbar: ProgressBar = $healthbar
 @onready var timer: Timer = $Timer
 @onready var combometer: ProgressBar = $CanvasLayer/combometer
 
+@onready var enter: TextureButton = $spelling_popup/CanvasLayer/spellingpop/enter
+
+
 
 var math_problems: Array[Dictionary] = []
+var spelling_probs: Array[Dictionary] = []
+
 
 var mathIndex: int
+var spellIndex: int
 
 var problemtype: int
 var action: String = ""
+var curr_popup: Control
 
 var enemy_instance: CharacterBody2D
 var enemy_anim: AnimatedSprite2D
@@ -31,7 +41,11 @@ var inCombo: bool = false
 func _ready() -> void:
 	# healthbar.max_value = player health
 	healthbar.value = healthbar.max_value
+	
+	curr_popup = pop
 	pop.visible = false
+	spelling_popup.visible = false
+	
 	player.set_physics_process(false)
 	camera.enabled = false
 	
@@ -45,6 +59,7 @@ func _ready() -> void:
 	
 	anim.play("idle")
 	button.pressed.connect(_on_enter_button_pressed)
+	enter.pressed.connect(_on_enter_spelling_button_pressed)
 	anim.animation_finished.connect(_on_player_anim_finished)
 
 
@@ -76,7 +91,30 @@ func load_problems(path: String) -> void: # load array
 
 	file.close()
 
-func show_problem(index: int, prob: Array[Dictionary]) -> void: # update label
+func load_spelling(path: String) -> void: 
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("Could not open %s" % path)
+		return
+	
+	var headers = file.get_csv_line()  # ["id", "word", "answer", "difficulty"]
+
+	while not file.eof_reached():
+		var row = file.get_csv_line()
+		if row.size() < headers.size():
+			continue  # skip trailing blank line
+		var entry = {}
+		for i in range(headers.size()):
+			entry[headers[i]] = row[i]
+		spelling_probs.append({
+			"id": int(entry["id"]),
+			"a": String(entry["word"]),
+			"answer": String(entry["answer"]),
+			"difficulty": String(entry["difficulty"]),
+		})
+	file.close()
+	
+func show_math_problem(index: int, prob: Array[Dictionary]) -> void: # update label
 	var p = prob[index]
 	$popup/CanvasLayer/pop/Label.text = "%d %s %d = ?" % [p.a, p.op, p.b]
 
@@ -94,42 +132,47 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	enemy_health.max_value = GlobalData.current_enemy_data.enemy_hp
 	enemy_health.value = GlobalData.current_enemy_data.enemy_hp
 	
-func _answer(index: int, prob: Array[Dictionary], ans: int)  -> void: # check answer and update lives
+func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # check answer and update lives
 	if action == "attack":
 		if prob[index].answer == ans: 				# success
 			correct += 1
 			startCombo()
 			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -(1 * damageMult)
-			pop.visible = false
+			curr_popup.visible = false
 			enemy_health.value = GlobalData.current_enemy_data.enemy_hp
 			anim.play("attack")
 			play_locked_animation("enemy")
 		else: 										# fail
 			GlobalData.lives -= 1
 			healthbar.value = GlobalData.lives
-			pop.visible = false
+			curr_popup.visible = false
 			print(GlobalData.lives)
 			correct = 0
 			damageMult = 1
 			combometer.visible = false
 			inCombo = false
 			play_locked_animation("player") # parameter doesnt do jack
+		
 	elif action == "heal":
 		if prob[index].answer == ans:				# success
 			GlobalData.lives = GlobalData.lives + 1
 			healthbar.value = GlobalData.lives
-			pop.visible = false
+			curr_popup.visible = false
 		else:										# fail
-			pop.visible = false
+			curr_popup.visible = false
 			GlobalData.lives = GlobalData.lives - 1
 			healthbar.value = GlobalData.lives
 			play_locked_animation("player")
 			
+
 func _on_enter_button_pressed() -> void: #submit
 	if not GlobalData.entry == 0:
 		_answer(mathIndex, math_problems, GlobalData.entry)
 
-
+func _on_enter_spelling_button_pressed() -> void:
+	if not GlobalData.spelling_entry == null:
+		$spelling_popup/CanvasLayer/spellingpop/ans.text = ""
+		_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
 
 func _on_heal_pressed() -> void: # heal
 	action = "heal"
@@ -140,19 +183,27 @@ func _on_heal_pressed() -> void: # heal
 	if problemtype == 1:
 		load_problems("res://Assets/math/math_problems_mixed.csv")
 		mathIndex = randi_range(0, 29)
-		show_problem(mathIndex, math_problems)
-		pop.visible = true
+		show_math_problem(mathIndex, math_problems)
+		curr_popup.visible = true
 		
 func _on_button_pressed() -> void: # attack
 	action = "attack"
 	$popup/CanvasLayer/pop/ansbox.text = ""
-	problemtype = randi_range(1,1)
+	problemtype = randi_range(1,2)
 	if problemtype == 1:
 		load_problems("res://Assets/math/math_problems.csv")
 		mathIndex = randi_range(0, len(math_problems)-1)
-		show_problem(mathIndex, math_problems)
-		pop.visible = true
-
+		curr_popup = pop
+		show_math_problem(mathIndex, math_problems)
+		curr_popup.visible = true
+	elif problemtype == 2:
+		load_spelling("res://Assets/spelling/spelling_words.csv")
+		spellIndex = randi_range(0, len(spelling_probs)-1)
+		spellIndex = 0 # temp
+		
+		curr_popup = spelling_popup
+		curr_popup.visible = true
+		
 func on_win() -> void:
 	GlobalData.lives = 3
 	GlobalData.defeated_enemies.append(GlobalData.current_enemy_data.enemy_id)
@@ -204,7 +255,7 @@ func startCombo() ->void:
 func _process(_delta: float) -> void:
 	if inCombo == true:
 		combometer.value = timer.time_left
-	if pop.visible and Input.is_action_just_pressed("enter"):
+	if curr_popup.visible and Input.is_action_just_pressed("enter"):
 		if not GlobalData.entry == 0:
 			_answer(mathIndex, math_problems, GlobalData.entry)
 

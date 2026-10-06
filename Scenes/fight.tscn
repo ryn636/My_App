@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://fsoa8ys0gs2f" path="res://Assets/Outline/ChatGPT Image Sep 14, 2026, 10_01_02 PM.png" id="2_l8cav"]
 [ext_resource type="FontFile" uid="uid://bqiuq8da7sl28" path="res://buttons/PixeloidSans.ttf" id="4_f2wba"]
 [ext_resource type="PackedScene" uid="uid://6fe5wofegtcf" path="res://Scenes/popup.tscn" id="4_vvs45"]
+[ext_resource type="PackedScene" uid="uid://bj7t372jx4lvw" path="res://Scenes/spelling_popup.tscn" id="6_kbr77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1jlh"]
 bg_color = Color(0.94860774, 0.39104468, 0.4167079, 1)
@@ -55,6 +56,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4p2qw")
 text = "heal"
 
 [node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_vvs45")]
+
+[node name="spelling_popup" parent="." unique_id=1376857037 instance=ExtResource("6_kbr77")]
+editor_description = "load problem 
+display word
+
+to do
+make draggable blocks 
+
+make check answer work"
+visible = false
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1218140442]
 position = Vector2(912, 332)

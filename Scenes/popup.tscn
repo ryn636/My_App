@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://6fe5wofegtcf"]
 
 [ext_resource type="Script" uid="uid://b5x88ilbdxc5k" path="res://Scripts/close.gd" id="1_2nprw"]
-[ext_resource type="FontFile" uid="uid://cgtteo61ob5ii" path="res://buttons/PixeloidMono.ttf" id="2_h4hm1"]
 [ext_resource type="Texture2D" uid="uid://cg5rk2ethvsr6" path="res://buttons/buttons_14.png" id="2_mtma1"]
 [ext_resource type="Texture2D" uid="uid://cnvuwvuajqyve" path="res://buttons/bases_02.png" id="2_vjsy5"]
 [ext_resource type="Texture2D" uid="uid://df12wg0n2jtp7" path="res://buttons/buttons_18.png" id="3_fx8xh"]
@@ -62,7 +61,6 @@ offset_left = 806.0
 offset_top = 477.0
 offset_right = 1126.0
 offset_bottom = 605.0
-theme_override_fonts/font = ExtResource("2_h4hm1")
 theme_override_font_sizes/font_size = 48
 
 [node name="enter" type="Button" parent="CanvasLayer/pop" unique_id=511080955]
