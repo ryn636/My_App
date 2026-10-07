@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://lrkrsbo2lrju" path="res://Scripts/spellingpop.gd" id="2_ix8eh"]
 [ext_resource type="AudioStream" uid="uid://berivnhow3gjc" path="res://Assets/audio files/mp3-output-ttsfree(dot)com.mp3" id="2_vg3tt"]
 [ext_resource type="Texture2D" uid="uid://ccskomq3e8agw" path="res://Assets/BlueButtons/audiobut.tres" id="3_b7j6u"]
-[ext_resource type="Texture2D" uid="uid://swc3yx2fy1tr" path="res://Scenes/SmallQuitButton.png" id="4_vg3tt"]
+[ext_resource type="Texture2D" uid="uid://swc3yx2fy1tr" path="res://Assets/BlueButtons/SmallQuitButton.png" id="4_vg3tt"]
 
 [node name="spelling popup" type="Node2D" unique_id=1376857037]
 

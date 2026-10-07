@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://swc3yx2fy1tr"
-path="res://.godot/imported/SmallQuitButton.png-74a0e8a377fd88fd895d9cfbbdba0d54.ctex"
+path="res://.godot/imported/SmallQuitButton.png-6c9fc7c332a4bb3acc8fae2fc588cab1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/SmallQuitButton.png"
-dest_files=["res://.godot/imported/SmallQuitButton.png-74a0e8a377fd88fd895d9cfbbdba0d54.ctex"]
+source_file="res://Assets/BlueButtons/SmallQuitButton.png"
+dest_files=["res://.godot/imported/SmallQuitButton.png-6c9fc7c332a4bb3acc8fae2fc588cab1.ctex"]
 
 [params]
 

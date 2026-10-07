@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bwrybhhsqk1ei" path="res://fighting_enemies/knight_1.tscn" id="2_7gcxt"]
 [ext_resource type="Texture2D" uid="uid://bn6jdorb4p6j3" path="res://Assets/Outline/120x80_PNGSheets/_Idle.png" id="2_ouxb0"]
 [ext_resource type="Texture2D" uid="uid://bjfqi67tybrg1" path="res://Assets/Outline/120x80_PNGSheets/_Run.png" id="3_0vtpx"]
-[ext_resource type="Texture2D" uid="uid://1lvrm5532nwq" path="res://Assets/Outline/excalimation mark2.png" id="4_ydwge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we6mo"]
 atlas = ExtResource("2_ouxb0")
@@ -159,42 +158,6 @@ animations = [{
 "speed": 9.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7gcxt"]
-atlas = ExtResource("4_ydwge")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cnpdo"]
-atlas = ExtResource("4_ydwge")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cc2rx"]
-atlas = ExtResource("4_ydwge")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxctt"]
-atlas = ExtResource("4_ydwge")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4p2qw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7gcxt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cnpdo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cc2rx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xxctt")
-}],
-"loop": 0,
-"name": &"uhoh",
-"speed": 10.0
-}]
-
 [sub_resource type="Animation" id="Animation_mbkrc"]
 length = 0.001
 tracks/0/type = "value"
@@ -212,22 +175,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("!:offset")
+tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -243,18 +194,6 @@ tracks/0/path = NodePath(".:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("!:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -287,18 +226,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 0.2), Vector2(-1, -0.2), Vector2(0.5, 0), Vector2(0, 0), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("!:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gh1nw"]
@@ -334,13 +261,6 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.09662655
 
-[node name="!" type="AnimatedSprite2D" parent="knight" unique_id=210811775]
-visible = false
-position = Vector2(-3.181818, -10.454547)
-scale = Vector2(0.7130682, 0.7130682)
-sprite_frames = SubResource("SpriteFrames_4p2qw")
-animation = &"uhoh"
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="knight" unique_id=1648863704]
 libraries/ = SubResource("AnimationLibrary_gh1nw")
 speed_scale = 1.8
@@ -356,6 +276,6 @@ target_position = Vector2(-192, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1819112364]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1395142801]
+[node name="teleport" type="CollisionShape2D" parent="Area2D" unique_id=1395142801]
 position = Vector2(-12, 23)
 shape = SubResource("CircleShape2D_2nprw")

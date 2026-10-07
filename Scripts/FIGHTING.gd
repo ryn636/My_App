@@ -166,13 +166,15 @@ func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # chec
 			
 
 func _on_enter_button_pressed() -> void: #submit
-	if not GlobalData.entry == 0:
-		_answer(mathIndex, math_problems, GlobalData.entry)
+	if curr_popup == pop:
+		if not GlobalData.entry == 0:
+			_answer(mathIndex, math_problems, GlobalData.entry)
 
 func _on_enter_spelling_button_pressed() -> void:
-	if not GlobalData.spelling_entry == "":
-		$spelling_popup/CanvasLayer/spellingpop/ans.text = ""
-		_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
+	if curr_popup == spelling_popup:
+		if not GlobalData.spelling_entry == "":
+			$spelling_popup/CanvasLayer/spellingpop/ans.text = ""
+			_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
 
 func _on_heal_pressed() -> void: # heal
 	action = "heal"

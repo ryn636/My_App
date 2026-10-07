@@ -1,19 +1,218 @@
 [gd_scene format=3 uid="uid://bnkr4xb4171km"]
 
+[ext_resource type="Script" uid="uid://cme03s1n46j4e" path="res://Scripts/enemy_knight.gd" id="1_d8ryr"]
+[ext_resource type="Texture2D" uid="uid://45d8bm8u8mc6" path="res://Assets/BossDragonFiles/dragon/spritesheets/boss-dragon-idle-sheet.png" id="1_jb4vs"]
+[ext_resource type="PackedScene" uid="uid://bq2omjrla307n" path="res://fighting_enemies/dragon_1.tscn" id="2_gfnx5"]
+[ext_resource type="Texture2D" uid="uid://xki2y3yvf4eo" path="res://Assets/BossDragonFiles/dragon/spritesheets/fly.png" id="3_gfnx5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtyor"]
+atlas = ExtResource("1_jb4vs")
+region = Rect2(0, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ryr"]
+atlas = ExtResource("1_jb4vs")
+region = Rect2(352, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfnx5"]
+atlas = ExtResource("1_jb4vs")
+region = Rect2(704, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gcdv"]
+atlas = ExtResource("1_jb4vs")
+region = Rect2(1056, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y84ol"]
+atlas = ExtResource("1_jb4vs")
+region = Rect2(1408, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23tg5"]
+atlas = ExtResource("1_jb4vs")
+region = Rect2(1760, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeayh"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(0, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwfcl"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(352, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0r6p"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(704, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmebr"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(1056, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7blnk"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(1408, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytthj"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(1760, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvdmv"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(2112, 0, 352, 287)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1hdw"]
+atlas = ExtResource("3_gfnx5")
+region = Rect2(2464, 0, 352, 287)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kb88c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtyor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8ryr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfnx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gcdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y84ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23tg5")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeayh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwfcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0r6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmebr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7blnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytthj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvdmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1hdw")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="Animation" id="Animation_mbkrc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7gcxt"]
+resource_name = "alert2"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.353256, 0.18069082, 0.20686418, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0.2), Vector2(-1, -0.2), Vector2(0.5, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6b4u"]
+_data = {
+&"RESET": SubResource("Animation_mbkrc"),
+&"alert2": SubResource("Animation_7gcxt")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7w6g"]
+radius = 51.0392
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g8lic"]
-radius = 32.0
+radius = 90.088844
 
-[node name="Dragon" type="CharacterBody2D" unique_id=1151536087]
+[node name="Dragon" type="CharacterBody2D" unique_id=1151536087 node_paths=PackedStringArray("enemy_sprite", "alert_player", "sight", "body_shape") groups=["enemy"]]
+script = ExtResource("1_d8ryr")
+enemy_sprite = NodePath("dragonsprite")
+alert_player = NodePath("dragonsprite/AnimationPlayer")
+sight = NodePath("Sprite2D/RayCast2D")
+body_shape = NodePath("CollisionShape2D")
+chase_duration = 6.0
+enemy_id = "dragon_1"
+fight_scene = ExtResource("2_gfnx5")
+enemy_hp = 20
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=966762374]
+[node name="dragonsprite" type="AnimatedSprite2D" parent="." unique_id=966762374]
+position = Vector2(-1, -53)
+sprite_frames = SubResource("SpriteFrames_kb88c")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dragonsprite" unique_id=333748457]
+libraries/ = SubResource("AnimationLibrary_j6b4u")
+speed_scale = 1.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1058463298]
 shape = SubResource("CircleShape2D_d7w6g")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1984412086]
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite2D" unique_id=1967957387]
+target_position = Vector2(-192, 0)
+
 [node name="Area2D" type="Area2D" parent="." unique_id=639549954]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=980878995]
-position = Vector2(-12, 23)
+[node name="teleport" type="CollisionShape2D" parent="Area2D" unique_id=980878995]
 shape = SubResource("CircleShape2D_g8lic")
