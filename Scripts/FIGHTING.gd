@@ -170,7 +170,7 @@ func _on_enter_button_pressed() -> void: #submit
 		_answer(mathIndex, math_problems, GlobalData.entry)
 
 func _on_enter_spelling_button_pressed() -> void:
-	if not GlobalData.spelling_entry == null:
+	if not GlobalData.spelling_entry == "":
 		$spelling_popup/CanvasLayer/spellingpop/ans.text = ""
 		_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
 

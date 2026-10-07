@@ -50,13 +50,15 @@ position = Vector2(-264, -328)
 position = Vector2(0, 728)
 scale = Vector2(0.9, 0.9)
 
-[node name="enemy_knight" parent="." unique_id=1679060359 instance=ExtResource("4_y7y61")]
+[node name="enemy_knight" parent="." unique_id=1679060359 node_paths=PackedStringArray("player") instance=ExtResource("4_y7y61")]
 position = Vector2(592, 320)
 motion_mode = 1
+player = NodePath("../Player")
 
-[node name="enemy_knight2" parent="." unique_id=1168651424 instance=ExtResource("4_y7y61")]
+[node name="enemy_knight2" parent="." unique_id=1168651424 node_paths=PackedStringArray("player") instance=ExtResource("4_y7y61")]
 position = Vector2(611, -619)
 motion_mode = 1
+player = NodePath("../Player")
 enemy_id = "knight_2"
 
 [node name="dialogue_display" parent="." unique_id=1818380867 instance=ExtResource("7_y7y61")]

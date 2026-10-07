@@ -1,28 +1,39 @@
 extends CharacterBody2D
-## Idle -> alert -> four-second pursuit -> return to the spawn position.
+## Shared basic enemy controller: idle -> alert -> pursuit -> return home.
 ## Uses world collisions for sight and pathfinding; no navigation bake required.
 
+@export_group("Nodes")
+## Assign the enemy's main sprite, not its alert icon.
+@export var enemy_sprite: AnimatedSprite2D
+## Optional. Leave unassigned to chase immediately without an alert animation.
+@export var alert_player: AnimationPlayer
+@export var sight: RayCast2D
+@export var body_shape: CollisionShape2D
 @export var player: CharacterBody2D
+
+@export_group("Animations")
+@export var idle_animation: StringName = &"idle"
+@export var move_animation: StringName = &"run"
+## Use a non-looping AnimationPlayer clip, or leave empty to skip the alert.
+@export var alert_animation: StringName = &"alert2"
+## Direction the artwork faces when Flip H is disabled.
+@export var sprite_faces_right: bool = true
+
+@export_group("Movement")
 @export var detection_radius: float = 276.0
 @export var chase_speed: float = 200.0
 @export var return_speed: float = 100.0
 @export var chase_duration: float = 5.0
+
+@export_group("Pathfinding")
 @export var path_cell_size: float = 24.0
 @export var path_search_margin: float = 384.0
 @export var repath_interval: float = 0.4
 
-#spawn fight stuff
-@export var enemy_id: String = "knight_1"
+@export_group("Battle")
+@export var enemy_id: String = ""
 @export var fight_scene: PackedScene
 @export var enemy_hp: int = 3
-
-
-@onready var knight: AnimatedSprite2D = $knight
-@onready var alert_sprite: AnimatedSprite2D = get_node("knight/!")
-@onready var alert_player: AnimationPlayer = $knight/AnimationPlayer
-@onready var sight: RayCast2D = $Sprite2D/RayCast2D
-@onready var body_shape: CollisionShape2D = $CollisionShape2D
-
 
 
 enum State { IDLE, ALERT, CHASE, RETURN_HOME }
@@ -35,16 +46,19 @@ var _repath_left: float = 0.0
 
 
 func _ready() -> void:
+	if enemy_sprite == null or sight == null or body_shape == null or body_shape.shape == null:
+		push_error("%s: assign Enemy Sprite, Sight, and Body Shape (with a shape) in the Inspector." % name)
+		set_physics_process(false)
+		return
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	home_position = global_position
-	alert_sprite.hide()
-	knight.offset = Vector2.ZERO
-	knight.play(&"idle")
+	_play_sprite_animation(idle_animation)
 	sight.add_exception(self)
 	sight.enabled = true
 	sight.collide_with_bodies = true
 	sight.collide_with_areas = false
-	alert_player.animation_finished.connect(_on_alert_finished)
+	if alert_player != null:
+		alert_player.animation_finished.connect(_on_alert_finished)
 	_find_player()
 
 
@@ -77,8 +91,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	var movement := get_real_velocity()
 	if absf(movement.x) > 0.1:
-		knight.flip_h = movement.x < 0.0
-	knight.play(&"run" if movement.length_squared() > 1.0 else &"idle")
+		enemy_sprite.flip_h = (movement.x < 0.0) == sprite_faces_right
+	_play_sprite_animation(move_animation if movement.length_squared() > 1.0 else idle_animation)
+
+
+func _play_sprite_animation(animation_name: StringName) -> void:
+	if enemy_sprite.sprite_frames != null and enemy_sprite.sprite_frames.has_animation(animation_name):
+		enemy_sprite.play(animation_name)
 
 
 func _find_player() -> void:
@@ -105,19 +124,21 @@ func _can_see_player(check_radius: bool = true) -> bool:
 func _begin_alert() -> void:
 	state = State.ALERT
 	last_seen_position = player.global_position
-	alert_sprite.show()
-	alert_sprite.stop()
-	alert_sprite.play(&"uhoh")
-	alert_player.play(&"alert")
+	if alert_player != null and alert_animation != &"" and alert_player.has_animation(alert_animation):
+		if alert_player.get_animation(alert_animation).loop_mode == Animation.LOOP_NONE:
+			alert_player.play(alert_animation)
+			return
+	# Missing or looping alert clips must not leave the enemy stuck in ALERT.
+	_begin_chase()
 
 
 func _on_alert_finished(animation_name: StringName) -> void:
-	if animation_name != &"alert" or state != State.ALERT:
+	if animation_name != alert_animation or state != State.ALERT:
 		return
-	# The icon stays visible for the whole AnimationPlayer clip, even if
-	# its own shorter sprite animation has already finished.
-	alert_sprite.hide()
-	alert_sprite.stop()
+	_begin_chase()
+
+
+func _begin_chase() -> void:
 	if not is_instance_valid(player):
 		_begin_return()
 		return
@@ -129,7 +150,6 @@ func _on_alert_finished(animation_name: StringName) -> void:
 
 func _begin_return() -> void:
 	state = State.RETURN_HOME
-	alert_sprite.hide()
 	_path.clear()
 	_repath_left = 0.0
 
