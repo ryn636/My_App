@@ -29,6 +29,7 @@ var spellIndex: int
 var problemtype: int
 var action: String = ""
 var curr_popup: Control
+var in_problem: bool = false
 
 var enemy_instance: CharacterBody2D
 var enemy_anim: AnimatedSprite2D
@@ -133,12 +134,14 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	enemy_health.value = GlobalData.current_enemy_data.enemy_hp
 	
 func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # check answer and update lives
+	in_problem = false
 	if action == "attack":
 		if prob[index].answer == ans: 				# success
 			correct += 1
 			startCombo()
 			GlobalData.current_enemy_data.enemy_hp = GlobalData.current_enemy_data.enemy_hp -(1 * damageMult)
 			curr_popup.visible = false
+			
 			enemy_health.value = GlobalData.current_enemy_data.enemy_hp
 			anim.play("attack")
 			play_locked_animation("enemy")
@@ -168,6 +171,7 @@ func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # chec
 func _on_enter_button_pressed() -> void: #submit
 	if curr_popup == pop:
 		if not GlobalData.entry == 0:
+			$popup/CanvasLayer/pop/ansbox.text = ""
 			_answer(mathIndex, math_problems, GlobalData.entry)
 
 func _on_enter_spelling_button_pressed() -> void:
@@ -177,6 +181,7 @@ func _on_enter_spelling_button_pressed() -> void:
 			_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
 
 func _on_heal_pressed() -> void: # heal
+	in_problem = true
 	action = "heal"
 	$popup/CanvasLayer/pop/ansbox.text = ""
 	if GlobalData.lives >= 3:
@@ -189,6 +194,7 @@ func _on_heal_pressed() -> void: # heal
 		curr_popup.visible = true
 		
 func _on_button_pressed() -> void: # attack
+	in_problem = true
 	action = "attack"
 	$popup/CanvasLayer/pop/ansbox.text = ""
 	problemtype = randi_range(1,2)
@@ -257,9 +263,21 @@ func startCombo() ->void:
 func _process(_delta: float) -> void:
 	if inCombo == true:
 		combometer.value = timer.time_left
-	if curr_popup.visible and Input.is_action_just_pressed("enter"):
-		if not GlobalData.entry == 0:
-			_answer(mathIndex, math_problems, GlobalData.entry)
+	
+func _input(event: InputEvent) -> void:
+	if in_problem:
+		if event.is_action_pressed("enter") and curr_popup.visible:
+			if GlobalData.entry == 0:
+				return
+			if GlobalData.spelling_entry == "":
+				return
+			if curr_popup == pop and not GlobalData.entry == 0:
+				$popup/CanvasLayer/pop/ansbox.text = ""
+				_answer(mathIndex, math_problems, GlobalData.entry)
+			elif curr_popup == spelling_popup and not GlobalData.spelling_entry == "":
+				$spelling_popup/CanvasLayer/spellingpop/ans.text = ""
+				_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
+
 
 func _on_timer_timeout() -> void:
 	correct = 0

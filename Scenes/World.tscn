@@ -45,8 +45,10 @@ tile_map_data = PackedByteArray("AAD9//D/AgAKABIAAAD9//H/AgAKABMAAAD+//D/AgALABI
 tile_set = ExtResource("4_45d1s")
 
 [node name="Dragon" parent="." unique_id=1151536087 node_paths=PackedStringArray("player") instance=ExtResource("4_q2d71")]
-position = Vector2(518, 1006)
+position = Vector2(608, -591)
+scale = Vector2(1.5, 1.5)
 player = NodePath("../Player")
+detection_radius = 400.0
 
 [node name="blueguynpc" parent="." unique_id=1442502241 instance=ExtResource("6_45d1s")]
 position = Vector2(-264, -328)
@@ -56,12 +58,12 @@ position = Vector2(0, 728)
 scale = Vector2(0.9, 0.9)
 
 [node name="enemy_knight" parent="." unique_id=1679060359 node_paths=PackedStringArray("player") instance=ExtResource("4_y7y61")]
-position = Vector2(592, 320)
+position = Vector2(588, 311)
 motion_mode = 1
 player = NodePath("../Player")
 
 [node name="enemy_knight2" parent="." unique_id=1168651424 node_paths=PackedStringArray("player") instance=ExtResource("4_y7y61")]
-position = Vector2(611, -619)
+position = Vector2(590, -156)
 motion_mode = 1
 player = NodePath("../Player")
 enemy_id = "knight_2"
