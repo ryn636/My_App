@@ -189,6 +189,7 @@ enemy_sprite = NodePath("dragonsprite")
 alert_player = NodePath("dragonsprite/AnimationPlayer")
 sight = NodePath("Sprite2D/RayCast2D")
 body_shape = NodePath("CollisionShape2D")
+sprite_faces_right = false
 chase_duration = 6.0
 enemy_id = "dragon_1"
 fight_scene = ExtResource("2_gfnx5")

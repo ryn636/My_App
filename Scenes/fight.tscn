@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dvdhjdadb10f1" path="res://Scripts/FIGHTING.gd" id="1_bq00v"]
 [ext_resource type="PackedScene" uid="uid://cjkqlrkbqxh3a" path="res://Scenes/player.tscn" id="2_bq00v"]
-[ext_resource type="Texture2D" uid="uid://fsoa8ys0gs2f" path="res://Assets/Outline/ChatGPT Image Sep 14, 2026, 10_01_02 PM.png" id="2_l8cav"]
+[ext_resource type="Texture2D" uid="uid://dwicrwtsa27xf" path="res://Assets/background/nature_5/1.png" id="2_ww01n"]
+[ext_resource type="Texture2D" uid="uid://2ipxkxadx3a5" path="res://Assets/background/nature_5/2.png" id="3_wn23j"]
 [ext_resource type="FontFile" uid="uid://bqiuq8da7sl28" path="res://buttons/PixeloidSans.ttf" id="4_f2wba"]
+[ext_resource type="Texture2D" uid="uid://hpji5e80vjch" path="res://Assets/background/nature_5/3.png" id="4_osq2n"]
 [ext_resource type="PackedScene" uid="uid://6fe5wofegtcf" path="res://Scenes/popup.tscn" id="4_vvs45"]
+[ext_resource type="Texture2D" uid="uid://bab2w7tdvbpkj" path="res://Assets/background/nature_5/4.png" id="5_kla5h"]
+[ext_resource type="Texture2D" uid="uid://dwo0ted7c8fyw" path="res://Assets/background/nature_5/5.png" id="6_b1d61"]
 [ext_resource type="PackedScene" uid="uid://bj7t372jx4lvw" path="res://Scenes/spelling_popup.tscn" id="6_kbr77"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1jlh"]
@@ -27,13 +31,46 @@ bg_color = Color(0.23324132, 0.64096886, 0.8700788, 1)
 [node name="fight" type="Node2D" unique_id=235376421]
 script = ExtResource("1_bq00v")
 
-[node name="back" type="Sprite2D" parent="." unique_id=1143347754]
-position = Vector2(578.74884, 332.37503)
-scale = Vector2(0.6956925, 0.7048351)
-texture = ExtResource("2_l8cav")
+[node name="back" type="Node2D" parent="." unique_id=76735038]
+
+[node name="Sprite2D" type="Sprite2D" parent="back" unique_id=1159118947]
+position = Vector2(1152, 323)
+scale = Vector2(4, 2)
+texture = ExtResource("2_ww01n")
+
+[node name="clouds" type="Parallax2D" parent="back" unique_id=666094814]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-20, 0)
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="back/clouds" unique_id=455743692]
+scale = Vector2(2, 2)
+texture = ExtResource("3_wn23j")
+centered = false
+
+[node name="idk" type="Parallax2D" parent="back" unique_id=594127402]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(-50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="back/idk" unique_id=1665827766]
+position = Vector2(575.99994, 323)
+scale = Vector2(2, 2)
+texture = ExtResource("6_b1d61")
+centered = false
+
+[node name="gras" type="Sprite2D" parent="back" unique_id=1853558482]
+position = Vector2(576, 324)
+scale = Vector2(2, 2)
+texture = ExtResource("4_osq2n")
+
+[node name="tree" type="Sprite2D" parent="back" unique_id=2129464463]
+position = Vector2(576, 324)
+scale = Vector2(2, 2)
+texture = ExtResource("5_kla5h")
 
 [node name="player" parent="." unique_id=2135218992 instance=ExtResource("2_bq00v")]
-position = Vector2(312, 448)
+position = Vector2(304, 552)
 scale = Vector2(2, 2)
 
 [node name="attack" type="Button" parent="." unique_id=937329310]
@@ -56,6 +93,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4p2qw")
 text = "heal"
 
 [node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_vvs45")]
+visible = false
 
 [node name="spelling_popup" parent="." unique_id=1376857037 instance=ExtResource("6_kbr77")]
 editor_description = "load problem 
@@ -68,13 +106,13 @@ make check answer work"
 visible = false
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1218140442]
-position = Vector2(912, 332)
+position = Vector2(920, 416)
 
 [node name="healthbar" type="ProgressBar" parent="." unique_id=1253289567]
-offset_left = 244.0
-offset_top = 337.0
-offset_right = 399.0
-offset_bottom = 352.0
+offset_left = 232.0
+offset_top = 424.0
+offset_right = 387.0
+offset_bottom = 439.0
 theme_override_styles/background = SubResource("StyleBoxFlat_02tnk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ilxdk")
 max_value = 3.0
@@ -99,6 +137,7 @@ offset_bottom = 63.0
 theme_override_styles/background = SubResource("StyleBoxFlat_juw6f")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1n0pc")
 value = 100.0
+show_percentage = false
 
 [connection signal="pressed" from="attack" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="heal" to="." method="_on_heal_pressed"]

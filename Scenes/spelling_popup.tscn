@@ -10,6 +10,7 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2016618591]
 
 [node name="spellingpop" type="Control" parent="CanvasLayer" unique_id=1181361155]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 4.0

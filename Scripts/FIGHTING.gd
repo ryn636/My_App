@@ -169,6 +169,7 @@ func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # chec
 			
 
 func _on_enter_button_pressed() -> void: #submit
+	
 	if curr_popup == pop:
 		if not GlobalData.entry == 0:
 			$popup/CanvasLayer/pop/ansbox.text = ""
@@ -181,6 +182,7 @@ func _on_enter_spelling_button_pressed() -> void:
 			_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
 
 func _on_heal_pressed() -> void: # heal
+	$heal.release_focus()
 	in_problem = true
 	action = "heal"
 	$popup/CanvasLayer/pop/ansbox.text = ""
@@ -194,6 +196,7 @@ func _on_heal_pressed() -> void: # heal
 		curr_popup.visible = true
 		
 func _on_button_pressed() -> void: # attack
+	$attack.release_focus()
 	in_problem = true
 	action = "attack"
 	$popup/CanvasLayer/pop/ansbox.text = ""
