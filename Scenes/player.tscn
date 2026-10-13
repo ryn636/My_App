@@ -249,8 +249,6 @@ script = ExtResource("1_cvnsp")
 scale = Vector2(2.2040625, 2.2040625)
 sprite_frames = SubResource("SpriteFrames_juw6f")
 animation = &"attack"
-frame = 6
-frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=123384639]
 
