@@ -9,6 +9,7 @@ func _ready() -> void:
 
 
 func _on_play_pressed() -> void:
+	GlobalData.player_name = $"../LineEdit".text
 	get_tree().change_scene_to_file("res://Scenes/World.tscn")
 	
 

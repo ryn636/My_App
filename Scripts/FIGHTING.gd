@@ -16,6 +16,7 @@ extends Node2D
 @onready var combometer: ProgressBar = $CanvasLayer/combometer
 
 @onready var enter: TextureButton = $spelling_popup/CanvasLayer/spellingpop/enter
+@onready var nametag: Label = $player/Label
 
 
 
@@ -49,6 +50,7 @@ func _ready() -> void:
 	
 	player.set_physics_process(false)
 	camera.enabled = false
+	nametag.visible = false
 	
 	combometer.visible = false
 	damageMult = 1
@@ -169,7 +171,6 @@ func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # chec
 			
 
 func _on_enter_button_pressed() -> void: #submit
-	
 	if curr_popup == pop:
 		if not GlobalData.entry == 0:
 			$popup/CanvasLayer/pop/ansbox.text = ""
@@ -200,7 +201,7 @@ func _on_button_pressed() -> void: # attack
 	in_problem = true
 	action = "attack"
 	$popup/CanvasLayer/pop/ansbox.text = ""
-	problemtype = randi_range(1,2)
+	problemtype = randi_range(1,1)
 	if problemtype == 1:
 		load_problems("res://Assets/math/math_problems.csv")
 		mathIndex = randi_range(0, len(math_problems)-1)
@@ -218,6 +219,7 @@ func _on_button_pressed() -> void: # attack
 func on_win() -> void:
 	GlobalData.lives = 3
 	GlobalData.defeated_enemies.append(GlobalData.current_enemy_data.enemy_id)
+	nametag.visible = true
 	get_tree().change_scene_to_file("res://Scenes/World.tscn")
 	
 

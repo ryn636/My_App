@@ -5,6 +5,7 @@ var lives = 3
 var entry: int = 0 # math
 var spelling_entry: String
 var fighting: bool = false
+var player_name: String
 
 var current_enemy_data: Dictionary = {}
 var lastpos: Vector2

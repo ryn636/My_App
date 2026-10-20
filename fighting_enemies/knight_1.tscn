@@ -294,9 +294,17 @@ animations = [{
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbqfi"]
 bg_color = Color(0.17161009, 0.17161009, 0.17161009, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hatgq"]
 bg_color = Color(1, 0.05882353, 0.3529412, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="knight1" type="CharacterBody2D" unique_id=1550958170 groups=["fightenemy"]]
 editor_description = "fight"

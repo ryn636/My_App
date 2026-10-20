@@ -248,10 +248,16 @@ script = ExtResource("1_cvnsp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1681425121]
 scale = Vector2(2.2040625, 2.2040625)
 sprite_frames = SubResource("SpriteFrames_juw6f")
-animation = &"attack"
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=123384639]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1452284030]
 position = Vector2(-1, 7)
 shape = SubResource("CapsuleShape2D_p70al")
+
+[node name="Label" type="Label" parent="." unique_id=1415318353]
+offset_left = -27.0
+offset_top = -71.0
+offset_right = 33.0
+offset_bottom = -48.0

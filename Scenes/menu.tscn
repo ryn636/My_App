@@ -1,54 +1,454 @@
 [gd_scene format=3 uid="uid://c6yvw0uabqseg"]
 
-[ext_resource type="Script" uid="uid://cyowhimcvll43" path="res://Scripts/menu.gd" id="1_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://crmnyj7ep7ppl" path="res://Assets/background/nature_3/1.png" id="1_3p34a"]
+[ext_resource type="Texture2D" uid="uid://2ipxkxadx3a5" path="res://Assets/background/nature_5/2.png" id="1_kmwmt"]
 [ext_resource type="Script" uid="uid://bkv8tgqyihdwi" path="res://Scripts/menutxt.gd" id="2_6swd7"]
-[ext_resource type="Texture2D" uid="uid://cqn50m6fooqi0" path="res://Assets/background/Ocean/0 ocean sky and sun.png" id="2_q3rjx"]
-[ext_resource type="Texture2D" uid="uid://pu2yipf4npqf" path="res://Assets/background/Ocean/1 ocean sea.png" id="3_6swd7"]
-[ext_resource type="Texture2D" uid="uid://dpbaj0iu2i3lv" path="res://Assets/background/Ocean/3 ocean clouds.png" id="4_7qvly"]
-[ext_resource type="Texture2D" uid="uid://cobtwcriy2dru" path="res://Assets/background/Ocean/4 ocean back mountain.png" id="5_rfqti"]
-[ext_resource type="Texture2D" uid="uid://b1qbhui2d1ru1" path="res://Assets/background/Ocean/5 ocean sand.png" id="6_g8i7c"]
-[ext_resource type="Texture2D" uid="uid://cpxo6rx228pqq" path="res://Assets/background/Ocean/6 ocean wave.png" id="7_23t3j"]
+[ext_resource type="Texture2D" uid="uid://cosokfjj3tf44" path="res://buttons/Sprites/UI_TravelBook_BookCover01a.png" id="2_owyel"]
+[ext_resource type="Texture2D" uid="uid://jycj8grtgxn" path="res://Assets/background/nature_3/2.png" id="2_rc6uw"]
+[ext_resource type="Texture2D" uid="uid://dcndf3e1i1tav" path="res://Assets/background/nature_3/3.png" id="3_dldpb"]
+[ext_resource type="Texture2D" uid="uid://bg0fcoxev0c7l" path="res://buttons/Sprites Animated/UI_TravelBook_Marker01aHide_1.png" id="3_h63v2"]
+[ext_resource type="Texture2D" uid="uid://cx2prxrv5r2mj" path="res://Assets/background/nature_3/4.png" id="4_d77ms"]
+[ext_resource type="Texture2D" uid="uid://b6qwecorgbrmc" path="res://buttons/Sprites/UI_TravelBook_BookPageLeft01a.png" id="4_l6llh"]
+[ext_resource type="Texture2D" uid="uid://djbmy46r2cr6n" path="res://buttons/Sprites/UI_TravelBook_BookPageRight01a.png" id="5_ocger"]
+[ext_resource type="Texture2D" uid="uid://ji7mumw05pjh" path="res://buttons/Sprites/UI_TravelBook_IconGear01a.png" id="6_i37ye"]
+[ext_resource type="StyleBox" uid="uid://dc5g4gm05he4l" path="res://Assets/background/new_style_box_texture.tres" id="7_rc6uw"]
 [ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="8_q3rjx"]
 [ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="9_6swd7"]
+[ext_resource type="Texture2D" uid="uid://c6k14bv7xkrwb" path="res://buttons/Sprites/UI_TravelBook_IconStar01a.png" id="16_jbv25"]
+[ext_resource type="Texture2D" uid="uid://wm0l2nc8vxq3" path="res://buttons/Sprites/UI_TravelBook_IconHeart01a.png" id="17_nakb8"]
+[ext_resource type="Texture2D" uid="uid://bjp6xqkpqgw4p" path="res://buttons/Sprites/UI_TravelBook_Slot01a.png" id="18_pde1v"]
+[ext_resource type="FontFile" uid="uid://cgtteo61ob5ii" path="res://buttons/PixeloidMono.ttf" id="19_747ic"]
+[ext_resource type="Texture2D" uid="uid://vejgvme2aw88" path="res://buttons/Sprites/UI_TravelBook_Fill01a.png" id="21_lvy56"]
+[ext_resource type="Texture2D" uid="uid://vd0wm05c8cq6" path="res://buttons/Sprites/UI_TravelBook_Line01a.png" id="22_48g0d"]
+[ext_resource type="Texture2D" uid="uid://intk2slt7wgc" path="res://Assets/Hero/male_hero-combo_1.png" id="23_jbv25"]
+[ext_resource type="Texture2D" uid="uid://cgryfti7ukywp" path="res://Assets/Hero/male_hero-combo_1_end.png" id="24_nakb8"]
+[ext_resource type="Texture2D" uid="uid://b21p1x821nuia" path="res://Assets/Hero/male_hero-idle.png" id="25_pde1v"]
+[ext_resource type="Texture2D" uid="uid://bw715h13bh8ot" path="res://Assets/Hero/male_hero-run.png" id="26_747ic"]
+[ext_resource type="Script" uid="uid://dg6j1u3aqsuxr" path="res://Scenes/line_edit.gd" id="26_i37ye"]
+[ext_resource type="Texture2D" uid="uid://d3koxyjpbasjw" path="res://Assets/Hero/hit.tres" id="27_x0760"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfqti"]
-bg_color = Color(0.2, 0.22745098, 0.23921569, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbv25"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ph6h"]
-bg_color = Color(0.15465423, 0.17241362, 0.18425512, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_747ic"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.31958842, 0.77102584, 0.48829192, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23t3j"]
-bg_color = Color(0.27058825, 0.27058825, 0.27058825, 0.7882353)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0760"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.9715223, 0.526358, 0.36074358, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qvly"]
 bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ti5v"]
-bg_color = Color(0.23031491, 0.23031494, 0.23031485, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pde1v"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.31958842, 0.77102584, 0.48829192, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1by5w"]
-bg_color = Color(0.34117648, 0.34117648, 0.34117648, 0.7882353)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nakb8"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.9715223, 0.526358, 0.36074358, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ijsl"]
+atlas = ExtResource("23_jbv25")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1odr"]
+atlas = ExtResource("23_jbv25")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gysh"]
+atlas = ExtResource("23_jbv25")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfarp"]
+atlas = ExtResource("24_nakb8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6uwr"]
+atlas = ExtResource("24_nakb8")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83xs0"]
+atlas = ExtResource("24_nakb8")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypfnu"]
+atlas = ExtResource("24_nakb8")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("25_pde1v")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("26_747ic")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("26_747ic")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("26_747ic")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("26_747ic")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("26_747ic")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("26_747ic")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("26_747ic")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("26_747ic")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
+atlas = ExtResource("26_747ic")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
+atlas = ExtResource("26_747ic")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi64h"]
+atlas = ExtResource("27_x0760")
+region = Rect2(0, 0, 35, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvy56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ijsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1odr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gysh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfarp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6uwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83xs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypfnu")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t5aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olqyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpjfl")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}],
+"loop": 0,
+"name": &"take_dmg",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7w6g"]
+bg_color = Color(0.36862746, 0.36862746, 0.36862746, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="menu" type="Node2D" unique_id=1824693103]
-script = ExtResource("1_wbdvm")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1244103001]
+
+[node name="1" type="Sprite2D" parent="Node2D" unique_id=1358395355]
+position = Vector2(575.99994, 324)
+scale = Vector2(1.9999998, 2)
+texture = ExtResource("1_3p34a")
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=622067869]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D" unique_id=1203775429]
+position = Vector2(504, 328)
+scale = Vector2(2, 2.006173)
+texture = ExtResource("1_kmwmt")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Node2D" unique_id=49659604]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2" unique_id=172484178]
+position = Vector2(576, 401)
+scale = Vector2(2, 2.006173)
+texture = ExtResource("2_rc6uw")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Node2D" unique_id=396670296]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D3" unique_id=802278957]
+position = Vector2(576, 335.99997)
+scale = Vector2(2, 2.006173)
+texture = ExtResource("3_dldpb")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Node2D" unique_id=1148952672]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4" unique_id=94298503]
+position = Vector2(576, 328)
+scale = Vector2(2, 2.006173)
+texture = ExtResource("4_d77ms")
+
+[node name="book" type="Node2D" parent="." unique_id=1166811252]
+scale = Vector2(1.5, 1.5)
+
+[node name="UiTravelBookBookCover01a" type="Sprite2D" parent="book" unique_id=567571174]
+position = Vector2(383.4666, 280.5833)
+scale = Vector2(1.65, 1.65)
+texture = ExtResource("2_owyel")
+
+[node name="UiTravelBookMarker01aHide1" type="Sprite2D" parent="book" unique_id=885136708]
+position = Vector2(247.46666, 146.58333)
+scale = Vector2(1.4999992, 1.4999992)
+texture = ExtResource("3_h63v2")
+
+[node name="UiTravelBookMarker01aHide2" type="Sprite2D" parent="book" unique_id=1337331138]
+position = Vector2(277.4666, 152.58333)
+scale = Vector2(1.4999992, 1.4999992)
+texture = ExtResource("3_h63v2")
+
+[node name="UiTravelBookMarker01aHide4" type="Sprite2D" parent="book" unique_id=267041680]
+position = Vector2(307.4666, 152.58333)
+scale = Vector2(1.4999992, 1.4999992)
+texture = ExtResource("3_h63v2")
+
+[node name="UiTravelBookBookPageLeft01a" type="Sprite2D" parent="book" unique_id=168345563]
+position = Vector2(297.4666, 279.89102)
+scale = Vector2(1.6538461, 1.6640502)
+texture = ExtResource("4_l6llh")
+
+[node name="UiTravelBookBookPageRight01a" type="Sprite2D" parent="book" unique_id=536141746]
+position = Vector2(470.46664, 279.58334)
+scale = Vector2(1.6682692, 1.6682692)
+texture = ExtResource("5_ocger")
+
+[node name="UiTravelBookIconGear01a" type="Sprite2D" parent="book" unique_id=1639953253]
+position = Vector2(277.46667, 152.58333)
+scale = Vector2(0.60714257, 0.60714597)
+texture = ExtResource("6_i37ye")
+
+[node name="Panel" type="Panel" parent="." unique_id=593426808]
+offset_left = 344.0
+offset_top = 408.0
+offset_right = 552.0
+offset_bottom = 576.0
+theme_override_styles/panel = ExtResource("7_rc6uw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=916991257]
 script = ExtResource("2_6swd7")
 
 [node name="author" type="RichTextLabel" parent="CanvasLayer" unique_id=1404162237]
-offset_left = 1024.0
-offset_top = 608.0
-offset_right = 1168.0
-offset_bottom = 632.0
+offset_left = 999.0
+offset_top = 614.0
+offset_right = 1143.0
+offset_bottom = 638.0
 theme_override_fonts/normal_font = ExtResource("8_q3rjx")
 bbcode_enabled = true
 text = "By: Ryan Tran"
 
 [node name="title" type="RichTextLabel" parent="CanvasLayer" unique_id=731308103]
-offset_left = 392.0
-offset_top = 224.0
-offset_right = 792.0
-offset_bottom = 312.0
+offset_left = 200.0
+offset_top = -200.0
+offset_right = 600.0
+offset_bottom = -112.0
 theme_override_fonts/normal_font = ExtResource("9_6swd7")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
@@ -56,92 +456,109 @@ text = "Super Cool Project"
 vertical_alignment = 1
 
 [node name="quit" type="Button" parent="CanvasLayer" unique_id=1893081373]
-offset_left = 536.0
-offset_top = 368.0
-offset_right = 616.0
-offset_bottom = 408.0
+offset_left = 376.0
+offset_top = 504.0
+offset_right = 512.0
+offset_bottom = 560.0
 theme_override_fonts/font = ExtResource("8_q3rjx")
-theme_override_styles/normal = SubResource("StyleBoxFlat_rfqti")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ph6h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_23t3j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jbv25")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_747ic")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0760")
 text = "QUIT"
 
 [node name="play" type="Button" parent="CanvasLayer" unique_id=1486145970]
-offset_left = 536.0
-offset_top = 312.0
-offset_right = 616.0
-offset_bottom = 352.0
+offset_left = 376.0
+offset_top = 432.0
+offset_right = 512.0
+offset_bottom = 488.0
 theme_override_fonts/font = ExtResource("8_q3rjx")
 theme_override_styles/normal = SubResource("StyleBoxFlat_7qvly")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5ti5v")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1by5w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pde1v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nakb8")
 text = "PLAY"
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=332030766]
-
-[node name="sun" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1759754426]
-motion_scale = Vector2(0.1, 0.1)
-motion_mirroring = Vector2(1918, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sun" unique_id=124172679]
-position = Vector2(960, 304.00003)
-scale = Vector2(0.5053741, 0.5053741)
-texture = ExtResource("2_q3rjx")
-
-[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/sun" unique_id=1690536457]
-offset_top = -168.0
-offset_right = 1920.0
-color = Color(0.11372549, 0.25882354, 0.50980395, 1)
-
-[node name="sea" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1378564235]
-position = Vector2(-8, 8)
-motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(1918, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sea" unique_id=1657731832]
-position = Vector2(960, 304)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("3_6swd7")
-
-[node name="clouds" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1929741993]
-position = Vector2(0, 8)
-motion_scale = Vector2(0.2, 0.2)
-motion_mirroring = Vector2(1918, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/clouds" unique_id=1165676931]
-position = Vector2(960, 304)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("4_7qvly")
-
-[node name="mount" type="ParallaxLayer" parent="ParallaxBackground" unique_id=739024839]
-motion_scale = Vector2(0.6, 0.6)
-motion_mirroring = Vector2(1918, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/mount" unique_id=974398557]
-position = Vector2(960, 304)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("5_rfqti")
-
-[node name="sand" type="ParallaxLayer" parent="ParallaxBackground" unique_id=928721168]
-position = Vector2(0, 40)
-motion_mirroring = Vector2(1918, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/sand" unique_id=1760197172]
-position = Vector2(960, 304)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("6_g8i7c")
-
-[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2027271066]
-motion_scale = Vector2(0.8, 0.8)
-motion_mirroring = Vector2(1918, 0)
-
-[node name="foam" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6" unique_id=2065194630]
-position = Vector2(960, 344)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("7_23t3j")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1763746970]
 position = Vector2(576, 323)
 
+[node name="UiTravelBookIconStar01a" type="Sprite2D" parent="." unique_id=1309618173]
+position = Vector2(371, 223)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("16_jbv25")
+
+[node name="UiTravelBookIconHeart01a" type="Sprite2D" parent="." unique_id=964489352]
+position = Vector2(461, 228)
+scale = Vector2(1.0961558, 1.2)
+texture = ExtResource("17_nakb8")
+
+[node name="UiTravelBookSlot01a" type="Sprite2D" parent="." unique_id=2633765]
+position = Vector2(634.75006, 296.25)
+scale = Vector2(2.749999, 2.5166662)
+texture = ExtResource("18_pde1v")
+
+[node name="Label" type="Label" parent="." unique_id=1741588164]
+offset_left = 703.0
+offset_top = 271.0
+offset_right = 808.0
+offset_bottom = 308.0
+theme_override_fonts/font = ExtResource("19_747ic")
+theme_override_font_sizes/font_size = 18
+text = "Character"
+
+[node name="UiTravelBookFill01a" type="Sprite2D" parent="." unique_id=192886102]
+position = Vector2(705, 574)
+scale = Vector2(6.7666698, 0.87500507)
+texture = ExtResource("21_lvy56")
+
+[node name="UiTravelBookFill01a2" type="Sprite2D" parent="." unique_id=281261653]
+position = Vector2(704.00006, 448)
+scale = Vector2(6.7666698, 0.87500507)
+texture = ExtResource("21_lvy56")
+
+[node name="UiTravelBookLine01a" type="Sprite2D" parent="." unique_id=299270110]
+position = Vector2(753.25, 294.125)
+scale = Vector2(3.3166668, 0.8750038)
+texture = ExtResource("22_48g0d")
+
+[node name="Label2" type="Label" parent="." unique_id=730765860]
+offset_left = 608.0
+offset_top = 344.0
+offset_right = 792.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("8_q3rjx")
+text = "Height: 5'9
+Hair: Brown
+Eye: Green
+Weight: 145 lbs
+"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2039745186]
+position = Vector2(636.735, 300.735)
+scale = Vector2(1.4260162, 1.426016)
+sprite_frames = SubResource("SpriteFrames_lvy56")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1122867646]
+offset_left = 600.0
+offset_top = 456.0
+offset_right = 808.0
+offset_bottom = 496.0
+theme_override_fonts/font = ExtResource("8_q3rjx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7w6g")
+placeholder_text = " Name:"
+max_length = 10
+script = ExtResource("26_i37ye")
+
+[node name="LineEdit2" type="LineEdit" parent="." unique_id=1750306081]
+offset_left = 600.0
+offset_top = 504.0
+offset_right = 808.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("8_q3rjx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d7w6g")
+placeholder_text = " Grade:"
+max_length = 10
+
 [connection signal="pressed" from="CanvasLayer/quit" to="CanvasLayer" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer" method="_on_play_pressed"]
+[connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]

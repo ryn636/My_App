@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b5x88ilbdxc5k" path="res://Scripts/close.gd" id="1_2nprw"]
 [ext_resource type="Texture2D" uid="uid://cg5rk2ethvsr6" path="res://buttons/buttons_14.png" id="2_mtma1"]
-[ext_resource type="Texture2D" uid="uid://cnvuwvuajqyve" path="res://buttons/bases_02.png" id="2_vjsy5"]
 [ext_resource type="Texture2D" uid="uid://df12wg0n2jtp7" path="res://buttons/buttons_18.png" id="3_fx8xh"]
+[ext_resource type="StyleBox" uid="uid://dc5g4gm05he4l" path="res://Assets/background/new_style_box_texture.tres" id="3_mtma1"]
 [ext_resource type="Texture2D" uid="uid://crlq83ghsvn8c" path="res://buttons/buttons_19.png" id="4_h4hm1"]
 [ext_resource type="Texture2D" uid="uid://c58bih70p5ovl" path="res://buttons/buttons_20.png" id="5_7gaej"]
 [ext_resource type="Texture2D" uid="uid://tody1whd11sk" path="res://buttons/buttons_21.png" id="6_6bwyj"]
@@ -42,10 +42,11 @@ offset_bottom = 77.99997
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/pop" unique_id=1340996248]
 layout_mode = 0
-offset_top = 440.0
+offset_top = 392.0
 offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.21176471, 0.3372549, 0.87058824, 1)
+offset_bottom = 600.0
+scale = Vector2(1.0046136, 1.26)
+color = Color(0.7176471, 0.6666667, 0.81960785, 1)
 
 [node name="Label" type="Label" parent="CanvasLayer/pop" unique_id=1836731343]
 layout_mode = 0
@@ -66,68 +67,31 @@ theme_override_font_sizes/font_size = 48
 
 [node name="enter" type="Button" parent="CanvasLayer/pop" unique_id=511080955]
 layout_mode = 0
-offset_left = 675.0
-offset_top = 466.0
-offset_right = 725.0
-offset_bottom = 506.0
+offset_left = 656.0
+offset_top = 472.0
+offset_right = 706.0
+offset_bottom = 512.0
 scale = Vector2(2.52, 2.52)
 icon = ExtResource("2_mtma1")
 flat = true
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer/pop" unique_id=1839289980]
-position = Vector2(-28, -43)
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1171820716]
-position = Vector2(69, 549)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=445683595]
-position = Vector2(113, 549)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=2105805520]
-position = Vector2(157, 549)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1042112042]
-position = Vector2(201, 549)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=917280818]
-position = Vector2(245, 548)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=745199283]
-position = Vector2(293, 548)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=800734927]
-position = Vector2(337, 549)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D8" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1938372122]
-position = Vector2(381, 549)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D9" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=1962741437]
-position = Vector2(513, 548)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D10" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=854325547]
-position = Vector2(469, 548)
-texture = ExtResource("2_vjsy5")
-
-[node name="Sprite2D11" type="Sprite2D" parent="CanvasLayer/pop/Node2D" unique_id=732542839]
-position = Vector2(425, 548)
-texture = ExtResource("2_vjsy5")
+[node name="Panel2" type="Panel" parent="CanvasLayer/pop" unique_id=300386941]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 408.00003
+offset_right = 184.0
+offset_bottom = 448.00003
+scale = Vector2(9.222097, 5.5483932)
+theme_override_styles/panel = ExtResource("3_mtma1")
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/pop" unique_id=1077275375]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 487.0
-offset_right = 505.0
-offset_bottom = 527.0
-columns = 11
+offset_left = 200.0
+offset_top = 432.00003
+offset_right = 795.0
+offset_bottom = 560.0
+scale = Vector2(1.5, 1.5)
+columns = 4
 
 [node name="Button1" type="Button" parent="CanvasLayer/pop/GridContainer" unique_id=1525398294]
 layout_mode = 2

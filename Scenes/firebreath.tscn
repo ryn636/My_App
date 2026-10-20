@@ -287,10 +287,11 @@ animations = [{
 }],
 "loop": 1,
 "name": &"fire",
-"speed": 30.0
+"speed": 40.0
 }]
 
 [node name="firebreath" type="AnimatedSprite2D" unique_id=187080264]
 sprite_frames = SubResource("SpriteFrames_d7w6g")
 animation = &"fire"
-frame_progress = 0.6311244
+frame = 28
+frame_progress = 0.5843009
