@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://bj7t372jx4lvw"]
 
 [ext_resource type="Script" uid="uid://lrkrsbo2lrju" path="res://Scripts/spellingpop.gd" id="2_ix8eh"]
-[ext_resource type="AudioStream" uid="uid://berivnhow3gjc" path="res://Assets/audio files/mp3-output-ttsfree(dot)com.mp3" id="2_vg3tt"]
+[ext_resource type="AudioStream" uid="uid://berivnhow3gjc" path="res://Assets/audio files/beautifu;.mp3" id="2_vg3tt"]
 [ext_resource type="Texture2D" uid="uid://ccskomq3e8agw" path="res://Assets/BlueButtons/audiobut.tres" id="3_b7j6u"]
-[ext_resource type="Texture2D" uid="uid://swc3yx2fy1tr" path="res://Assets/BlueButtons/SmallQuitButton.png" id="4_vg3tt"]
+[ext_resource type="AudioStream" uid="uid://b2weym2nicm8h" path="res://Assets/audio files/cat.mp3" id="4_b7j6u"]
+[ext_resource type="Texture2D" uid="uid://cg5rk2ethvsr6" path="res://buttons/buttons_14.png" id="4_vg3tt"]
+[ext_resource type="AudioStream" uid="uid://0mq2gfu6xj6r" path="res://Assets/audio files/jump.mp3" id="6_e1828"]
+[ext_resource type="AudioStream" uid="uid://bysg61o1d5fbo" path="res://Assets/audio files/forest.mp3" id="7_m703s"]
+[ext_resource type="AudioStream" uid="uid://bdfo6iuhlg6g6" path="res://Assets/audio files/run.mp3" id="8_b2v1b"]
 
 [node name="spelling popup" type="Node2D" unique_id=1376857037]
 
@@ -31,9 +35,6 @@ offset_bottom = 359.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/spellingpop" unique_id=1321110212]
-stream = ExtResource("2_vg3tt")
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/spellingpop" unique_id=1336779060]
 layout_mode = 0
 offset_top = 448.0
@@ -58,5 +59,22 @@ offset_right = 1048.0
 offset_bottom = 600.0
 texture_normal = ExtResource("4_vg3tt")
 stretch_mode = 4
+
+[node name="audio" type="Node2D" parent="." unique_id=119206601]
+
+[node name="cat" type="AudioStreamPlayer" parent="audio" unique_id=1321110212]
+stream = ExtResource("4_b7j6u")
+
+[node name="beautiful" type="AudioStreamPlayer" parent="audio" unique_id=1529516010]
+stream = ExtResource("2_vg3tt")
+
+[node name="jump" type="AudioStreamPlayer" parent="audio" unique_id=1748281886]
+stream = ExtResource("6_e1828")
+
+[node name="forest" type="AudioStreamPlayer" parent="audio" unique_id=1819622760]
+stream = ExtResource("7_m703s")
+
+[node name="run" type="AudioStreamPlayer" parent="audio" unique_id=257094101]
+stream = ExtResource("8_b2v1b")
 
 [connection signal="pressed" from="CanvasLayer/spellingpop/playaudio" to="CanvasLayer/spellingpop" method="_on_texture_button_pressed"]

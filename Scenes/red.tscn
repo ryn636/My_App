@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cl3wuy5j60b55"]
+
+[sub_resource type="Animation" id="Animation_qwjhl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9411765, 0, 0.2901961, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pr4ng"]
+resource_name = "wrong"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.9411765, 0, 0.2901961, 0), Color(0.92156863, 0, 0.1254902, 0.50980395), Color(0.92156863, 0, 0.1254902, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka55l"]
+_data = {
+&"RESET": SubResource("Animation_qwjhl"),
+&"wrong": SubResource("Animation_pr4ng")
+}
+
+[node name="red" type="ColorRect" unique_id=1394232790]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.9411765, 0, 0.2901961, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=833835713]
+libraries/ = SubResource("AnimationLibrary_ka55l")

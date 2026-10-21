@@ -18,6 +18,8 @@ extends Node2D
 @onready var enter: TextureButton = $spelling_popup/CanvasLayer/spellingpop/enter
 @onready var nametag: Label = $player/Label
 
+@onready var red: AnimationPlayer = $CanvasLayer/red/AnimationPlayer
+@onready var box: ColorRect = $CanvasLayer/red
 
 
 var math_problems: Array[Dictionary] = []
@@ -40,6 +42,10 @@ var correct: int = 0
 var damageMult: int
 var inCombo: bool = false
 
+var tries = 3
+var answershow: Variant
+signal popup_closed
+
 func _ready() -> void:
 	# healthbar.max_value = player health
 	healthbar.value = healthbar.max_value
@@ -51,9 +57,12 @@ func _ready() -> void:
 	player.set_physics_process(false)
 	camera.enabled = false
 	nametag.visible = false
+	$CanvasLayer/answers.visible = false
 	
 	combometer.visible = false
 	damageMult = 1
+	
+	box.visible = false
 	
 	var data = GlobalData.current_enemy_data
 	spawn_enemy(data.fight_scene)
@@ -137,6 +146,7 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	
 func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # check answer and update lives
 	in_problem = false
+	answershow = prob[index].answer
 	if action == "attack":
 		if prob[index].answer == ans: 				# success
 			correct += 1
@@ -148,15 +158,7 @@ func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # chec
 			anim.play("attack")
 			play_locked_animation("enemy")
 		else: 										# fail
-			GlobalData.lives -= 1
-			healthbar.value = GlobalData.lives
-			curr_popup.visible = false
-			print(GlobalData.lives)
-			correct = 0
-			damageMult = 1
-			combometer.visible = false
-			inCombo = false
-			play_locked_animation("player") # parameter doesnt do jack
+			onInccorect()
 		
 	elif action == "heal":
 		if prob[index].answer == ans:				# success
@@ -201,7 +203,7 @@ func _on_button_pressed() -> void: # attack
 	in_problem = true
 	action = "attack"
 	$popup/CanvasLayer/pop/ansbox.text = ""
-	problemtype = randi_range(1,1)
+	problemtype = randi_range(1,2)
 	if problemtype == 1:
 		load_problems("res://Assets/math/math_problems.csv")
 		mathIndex = randi_range(0, len(math_problems)-1)
@@ -210,9 +212,8 @@ func _on_button_pressed() -> void: # attack
 		curr_popup.visible = true
 	elif problemtype == 2:
 		load_spelling("res://Assets/spelling/spelling_words.csv")
-		spellIndex = randi_range(0, len(spelling_probs)-1)
-		spellIndex = 0 # temp
-		
+		spellIndex = randi_range(0, 4)
+		spelling_popup.changeAudio(spellIndex)
 		curr_popup = spelling_popup
 		curr_popup.visible = true
 		
@@ -268,6 +269,7 @@ func startCombo() ->void:
 func _process(_delta: float) -> void:
 	if inCombo == true:
 		combometer.value = timer.time_left
+
 	
 func _input(event: InputEvent) -> void:
 	if in_problem:
@@ -289,3 +291,36 @@ func _on_timer_timeout() -> void:
 	damageMult = 1
 	combometer.visible = false
 	inCombo = false
+
+
+func onInccorect() -> void:
+	tries -= 1
+	if tries <= 0:
+		$CanvasLayer/answers/display.text = str(answershow)
+		$CanvasLayer/answers.visible = true
+		$CanvasLayer/answers/AnimationPlayer.play("display")
+		await popup_closed
+		
+		tries = 3
+		GlobalData.lives -= 1
+		healthbar.value = GlobalData.lives
+		curr_popup.visible = false
+		print(GlobalData.lives)
+		correct = 0
+		damageMult = 1
+		combometer.visible = false
+		inCombo = false
+		play_locked_animation("player")
+	else: 
+		box.visible = true
+		red.play("wrong")
+		await get_tree().create_timer(1.0).timeout
+		box.visible = false
+		
+
+
+func _on_ansdisplay_pressed() -> void:
+	if $CanvasLayer/answers/AnimationPlayer.is_playing():
+		return
+	$CanvasLayer/answers.visible = false
+	popup_closed.emit()

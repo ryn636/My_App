@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://dwo0ted7c8fyw" path="res://Assets/background/nature_5/5.png" id="6_b1d61"]
 [ext_resource type="PackedScene" uid="uid://bj7t372jx4lvw" path="res://Scenes/spelling_popup.tscn" id="6_kbr77"]
 [ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="8_ww01n"]
+[ext_resource type="PackedScene" uid="uid://cl3wuy5j60b55" path="res://Scenes/red.tscn" id="11_wn23j"]
+[ext_resource type="Texture2D" uid="uid://bjp6xqkpqgw4p" path="res://buttons/Sprites/UI_TravelBook_Slot01a.png" id="12_kla5h"]
+[ext_resource type="Texture2D" uid="uid://ctx1lvhf0a6kx" path="res://buttons/Sprites/UI_TravelBook_IconTick01a.png" id="13_b1d61"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn23j"]
 bg_color = Color(0.80811965, 0.25273892, 0.28111976, 1)
@@ -97,9 +100,137 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juw6f"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n0pc"]
 bg_color = Color(0.23324132, 0.64096886, 0.8700788, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Animation" id="Animation_wn23j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("display:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UiTravelBookSlot01a:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ansdisplay:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_osq2n"]
+resource_name = "display"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("display:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.13521624, 0.19003308, 0.24757892, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UiTravelBookSlot01a:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ansdisplay:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kla5h"]
+_data = {
+&"RESET": SubResource("Animation_wn23j"),
+&"display": SubResource("Animation_osq2n")
+}
 
 [node name="fight" type="Node2D" unique_id=235376421]
 script = ExtResource("1_bq00v")
@@ -217,6 +348,47 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_1n0pc")
 value = 100.0
 show_percentage = false
 
+[node name="red" parent="CanvasLayer" unique_id=1394232790 instance=ExtResource("11_wn23j")]
+
+[node name="answers" type="ColorRect" parent="CanvasLayer" unique_id=1018933918]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(1, 1, 1, 0)
+
+[node name="display" type="Label" parent="CanvasLayer/answers" unique_id=1852301522]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("8_ww01n")
+theme_override_font_sizes/font_size = 32
+text = "asdaSD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UiTravelBookSlot01a" type="Sprite2D" parent="CanvasLayer/answers" unique_id=1619994179]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1013, 523)
+scale = Vector2(5.0500007, 5.0500007)
+texture = ExtResource("12_kla5h")
+
+[node name="ansdisplay" type="Button" parent="CanvasLayer/answers" unique_id=1373165351]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 960.0
+offset_top = 464.0
+offset_right = 1072.0
+offset_bottom = 584.0
+icon = ExtResource("13_b1d61")
+flat = true
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/answers" unique_id=2074702237]
+libraries/ = SubResource("AnimationLibrary_kla5h")
+
 [connection signal="pressed" from="attack" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="heal" to="." method="_on_heal_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/answers/ansdisplay" to="." method="_on_ansdisplay_pressed"]

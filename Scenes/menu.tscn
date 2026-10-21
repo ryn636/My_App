@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://ji7mumw05pjh" path="res://buttons/Sprites/UI_TravelBook_IconGear01a.png" id="6_i37ye"]
 [ext_resource type="StyleBox" uid="uid://dc5g4gm05he4l" path="res://Assets/background/new_style_box_texture.tres" id="7_rc6uw"]
 [ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="8_q3rjx"]
-[ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="9_6swd7"]
 [ext_resource type="Texture2D" uid="uid://c6k14bv7xkrwb" path="res://buttons/Sprites/UI_TravelBook_IconStar01a.png" id="16_jbv25"]
 [ext_resource type="Texture2D" uid="uid://wm0l2nc8vxq3" path="res://buttons/Sprites/UI_TravelBook_IconHeart01a.png" id="17_nakb8"]
 [ext_resource type="Texture2D" uid="uid://bjp6xqkpqgw4p" path="res://buttons/Sprites/UI_TravelBook_Slot01a.png" id="18_pde1v"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b21p1x821nuia" path="res://Assets/Hero/male_hero-idle.png" id="25_pde1v"]
 [ext_resource type="Texture2D" uid="uid://bw715h13bh8ot" path="res://Assets/Hero/male_hero-run.png" id="26_747ic"]
 [ext_resource type="Script" uid="uid://dg6j1u3aqsuxr" path="res://Scenes/line_edit.gd" id="26_i37ye"]
+[ext_resource type="FontFile" uid="uid://ba2gher0bx1le" path="res://npcs/Kaph-Regular.ttf" id="27_jbv25"]
 [ext_resource type="Texture2D" uid="uid://d3koxyjpbasjw" path="res://Assets/Hero/hit.tres" id="27_x0760"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbv25"]
@@ -445,14 +445,14 @@ bbcode_enabled = true
 text = "By: Ryan Tran"
 
 [node name="title" type="RichTextLabel" parent="CanvasLayer" unique_id=731308103]
-offset_left = 200.0
-offset_top = -200.0
-offset_right = 600.0
-offset_bottom = -112.0
-theme_override_fonts/normal_font = ExtResource("9_6swd7")
+offset_left = 328.0
+offset_top = 264.0
+offset_right = 728.0
+offset_bottom = 352.0
+theme_override_fonts/normal_font = ExtResource("27_jbv25")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "Super Cool Project"
+text = "EDventure"
 vertical_alignment = 1
 
 [node name="quit" type="Button" parent="CanvasLayer" unique_id=1893081373]
@@ -558,6 +558,15 @@ theme_override_fonts/font = ExtResource("8_q3rjx")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7w6g")
 placeholder_text = " Grade:"
 max_length = 10
+
+[node name="Label4" type="Label" parent="." unique_id=793373798]
+offset_left = 392.0
+offset_top = 328.0
+offset_right = 596.0
+offset_bottom = 386.0
+theme_override_fonts/font = ExtResource("8_q3rjx")
+theme_override_font_sizes/font_size = 8
+text = "an educational adventure"
 
 [connection signal="pressed" from="CanvasLayer/quit" to="CanvasLayer" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer" method="_on_play_pressed"]
