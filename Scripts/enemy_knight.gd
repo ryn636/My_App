@@ -34,6 +34,7 @@ extends CharacterBody2D
 @export var enemy_id: String = ""
 @export var fight_scene: PackedScene
 @export var enemy_hp: int = 3
+@export var extra_dmg: int = 1
 
 
 enum State { IDLE, ALERT, CHASE, RETURN_HOME }

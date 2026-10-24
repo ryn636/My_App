@@ -183,7 +183,7 @@ radius = 51.0392
 [sub_resource type="CircleShape2D" id="CircleShape2D_g8lic"]
 radius = 90.088844
 
-[node name="Dragon" type="CharacterBody2D" unique_id=1151536087 node_paths=PackedStringArray("enemy_sprite", "alert_player", "sight", "body_shape") groups=["enemy"]]
+[node name="Dragon" type="CharacterBody2D" unique_id=1151536087 node_paths=PackedStringArray("enemy_sprite", "alert_player", "sight", "body_shape") groups=["dragon", "enemy"]]
 script = ExtResource("1_d8ryr")
 enemy_sprite = NodePath("dragonsprite")
 alert_player = NodePath("dragonsprite/AnimationPlayer")
@@ -194,6 +194,7 @@ chase_duration = 6.0
 enemy_id = "dragon_1"
 fight_scene = ExtResource("2_gfnx5")
 enemy_hp = 20
+extra_dmg = 2
 
 [node name="dragonsprite" type="AnimatedSprite2D" parent="." unique_id=966762374]
 position = Vector2(-1, -53)

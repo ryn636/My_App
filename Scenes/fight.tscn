@@ -106,7 +106,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1n0pc"]
-bg_color = Color(0.23324132, 0.64096886, 0.8700788, 1)
+bg_color = Color(0.972549, 0, 0, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
@@ -318,14 +318,13 @@ visible = false
 position = Vector2(920, 416)
 
 [node name="healthbar" type="ProgressBar" parent="." unique_id=1253289567]
-offset_left = 272.0
-offset_top = 424.0
-offset_right = 427.0
-offset_bottom = 439.0
+offset_left = 237.0
+offset_top = 426.0
+offset_right = 392.0
+offset_bottom = 441.0
 theme_override_styles/background = SubResource("StyleBoxFlat_02tnk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ilxdk")
-max_value = 3.0
-value = 1.0
+value = 8.0
 show_percentage = false
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1871440494]

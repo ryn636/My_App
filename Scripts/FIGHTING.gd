@@ -37,6 +37,7 @@ var in_problem: bool = false
 var enemy_instance: CharacterBody2D
 var enemy_anim: AnimatedSprite2D
 var enemy_health: ProgressBar
+var heal_times: int = 0
 
 var correct: int = 0
 var damageMult: int
@@ -47,14 +48,15 @@ var answershow: Variant
 signal popup_closed
 
 func _ready() -> void:
-	# healthbar.max_value = player health
-	healthbar.value = healthbar.max_value
+	healthbar.max_value = GlobalData.max_lives
+	healthbar.value = GlobalData.lives
 	
 	curr_popup = pop
 	pop.visible = false
 	spelling_popup.visible = false
 	
 	player.set_physics_process(false)
+	
 	camera.enabled = false
 	nametag.visible = false
 	$CanvasLayer/answers.visible = false
@@ -143,6 +145,7 @@ func spawn_enemy(enemy_scene: PackedScene) -> void:
 	enemy_anim.animation_finished.connect(_on_enemy_animation_finished)
 	enemy_health.max_value = GlobalData.current_enemy_data.enemy_hp
 	enemy_health.value = GlobalData.current_enemy_data.enemy_hp
+	enemy_anim.frame_changed.connect(_on_frame_changed)
 	
 func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # check answer and update lives
 	in_problem = false
@@ -161,7 +164,10 @@ func _answer(index: int, prob: Array[Dictionary], ans: Variant)  -> void: # chec
 			onInccorect()
 		
 	elif action == "heal":
+		if heal_times > 0:
+			return
 		if prob[index].answer == ans:				# success
+			heal_times += 1
 			GlobalData.lives = GlobalData.lives + 1
 			healthbar.value = GlobalData.lives
 			curr_popup.visible = false
@@ -189,7 +195,7 @@ func _on_heal_pressed() -> void: # heal
 	in_problem = true
 	action = "heal"
 	$popup/CanvasLayer/pop/ansbox.text = ""
-	if GlobalData.lives >= 3:
+	if GlobalData.lives >= GlobalData.max_lives:
 		return
 	problemtype = randi_range(1,1)
 	if problemtype == 1:
@@ -218,18 +224,20 @@ func _on_button_pressed() -> void: # attack
 		curr_popup.visible = true
 		
 func on_win() -> void:
-	GlobalData.lives = 3
 	GlobalData.defeated_enemies.append(GlobalData.current_enemy_data.enemy_id)
 	nametag.visible = true
-	get_tree().change_scene_to_file("res://Scenes/World.tscn")
+	get_tree().change_scene_to_file("res://Scenes/World.scn")
 	
 
 func set_buttons_disabled(value: bool) -> void:
 	for child in grid_container.get_children():
 		if child is Button:
 			child.disabled = value
-	$attack.disabled = value
-	$heal.disabled = value
+	if heal_times > 0:
+		$attack.disabled = value	
+	else:
+		$attack.disabled = value
+		$heal.disabled = value
 
 func play_locked_animation(character: String) -> void: # death and damage
 	set_buttons_disabled(true)
@@ -269,21 +277,11 @@ func startCombo() ->void:
 func _process(_delta: float) -> void:
 	if inCombo == true:
 		combometer.value = timer.time_left
+		
+	if heal_times > 0:
+		$heal.disabled = true
 
 	
-func _input(event: InputEvent) -> void:
-	if in_problem:
-		if event.is_action_pressed("enter") and curr_popup.visible:
-			if GlobalData.entry == 0:
-				return
-			if GlobalData.spelling_entry == "":
-				return
-			if curr_popup == pop and not GlobalData.entry == 0:
-				$popup/CanvasLayer/pop/ansbox.text = ""
-				_answer(mathIndex, math_problems, GlobalData.entry)
-			elif curr_popup == spelling_popup and not GlobalData.spelling_entry == "":
-				$spelling_popup/CanvasLayer/spellingpop/ans.text = ""
-				_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
 
 
 func _on_timer_timeout() -> void:
@@ -302,7 +300,7 @@ func onInccorect() -> void:
 		await popup_closed
 		
 		tries = 3
-		GlobalData.lives -= 1
+		GlobalData.lives -= (1 * GlobalData.current_enemy_data.enemy_dmg)
 		healthbar.value = GlobalData.lives
 		curr_popup.visible = false
 		print(GlobalData.lives)
@@ -324,3 +322,11 @@ func _on_ansdisplay_pressed() -> void:
 		return
 	$CanvasLayer/answers.visible = false
 	popup_closed.emit()
+	
+func _on_frame_changed() ->void:
+	if enemy_anim.animation == "attack":
+		if enemy_instance.is_in_group("dragon"):
+			if enemy_anim.frame == 5:
+				enemy_anim.get_node("firebreath").visible = true
+			elif enemy_anim.frame == 18:
+				enemy_anim.get_node("firebreath").visible = false

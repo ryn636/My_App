@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dj3ypk78q6j6s" path="res://Assets/FREE_Kobold Warrior 2D Pixel Art/Sprites/with_outline/IDLE.png" id="1_0tnkw"]
 [ext_resource type="Script" uid="uid://cmbokmfdpr53u" path="res://Scripts/Blueguynpc_id.gd" id="1_o843m"]
+[ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="3_fmwy6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o843m"]
 atlas = ExtResource("1_0tnkw")
@@ -77,3 +78,12 @@ shape = SubResource("CapsuleShape2D_a1jlh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1491988734]
 position = Vector2(-14, 17)
 shape = SubResource("CircleShape2D_d7w6g")
+
+[node name="inter" type="Label" parent="." unique_id=1861882977]
+visible = false
+offset_left = -39.0
+offset_top = -40.0
+offset_right = 9.0
+offset_bottom = -17.0
+theme_override_fonts/font = ExtResource("3_fmwy6")
+text = "Press E"

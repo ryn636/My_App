@@ -7,19 +7,19 @@
 [ext_resource type="Texture2D" uid="uid://bn6jdorb4p6j3" path="res://Assets/Outline/120x80_PNGSheets/_Idle.png" id="4_70tey"]
 [ext_resource type="Texture2D" uid="uid://bmmja5yr8lr4g" path="res://Assets/Outline/120x80_PNGSheets/_Hit.png" id="5_gbqfi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6nij"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hatgq"]
 atlas = ExtResource("1_jddi3")
 region = Rect2(0, 0, 120, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_srkce"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_685j5"]
 atlas = ExtResource("1_jddi3")
 region = Rect2(120, 0, 120, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xvokj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf32b"]
 atlas = ExtResource("1_jddi3")
 region = Rect2(240, 0, 120, 80)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ets3l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbpex"]
 atlas = ExtResource("1_jddi3")
 region = Rect2(360, 0, 120, 80)
 
@@ -151,16 +151,28 @@ region = Rect2(0, 0, 120, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u6nij")
+"texture": SubResource("AtlasTexture_hatgq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_srkce")
+"texture": SubResource("AtlasTexture_hatgq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xvokj")
+"texture": SubResource("AtlasTexture_685j5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ets3l")
+"texture": SubResource("AtlasTexture_685j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf32b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf32b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbpex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbpex")
 }],
 "loop": 0,
 "name": &"attack",
@@ -314,6 +326,8 @@ script = ExtResource("1_yuy2k")
 scale = Vector2(4.5, 4.5)
 sprite_frames = SubResource("SpriteFrames_d7w6g")
 animation = &"attack"
+frame = 7
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=847230226]

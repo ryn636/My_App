@@ -232,6 +232,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi64h")
 }],
 "loop": 0,
 "name": &"take_dmg",
@@ -257,7 +275,7 @@ position = Vector2(-1, 7)
 shape = SubResource("CapsuleShape2D_p70al")
 
 [node name="Label" type="Label" parent="." unique_id=1415318353]
-offset_left = -27.0
-offset_top = -71.0
-offset_right = 33.0
-offset_bottom = -48.0
+offset_left = -22.0
+offset_top = -72.0
+offset_right = 38.0
+offset_bottom = -49.0

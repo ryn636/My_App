@@ -2,6 +2,43 @@
 
 [ext_resource type="Script" uid="uid://b7siuwf3rjhce" path="res://Scripts/game over.gd" id="1_8fo1c"]
 [ext_resource type="FontFile" uid="uid://ci6yylu0jx3b8" path="res://buttons/PixeloidSans-Bold.ttf" id="2_ek8ke"]
+[ext_resource type="FontFile" uid="uid://b7qq6dn6v7dfc" path="res://buttons/vinivicious.ttf" id="3_ek8ke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoghk"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14u15"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.31958842, 0.77102584, 0.48829192, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3ryr"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.9715223, 0.526358, 0.36074358, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Game Over" type="Node2D" unique_id=538845453]
 
@@ -20,23 +57,26 @@ color = Color(0.09239707, 0.09239706, 0.09239706, 1)
 
 [node name="over" type="RichTextLabel" parent="CanvasLayer/Control" unique_id=1291162459]
 layout_mode = 0
-offset_left = 296.0
-offset_top = 256.0
-offset_right = 928.0
-offset_bottom = 376.0
+offset_left = 352.0
+offset_top = 248.0
+offset_right = 984.0
+offset_bottom = 368.0
 theme_override_colors/default_color = Color(0.78671134, 0, 0.052971214, 1)
 theme_override_fonts/normal_font = ExtResource("2_ek8ke")
 theme_override_font_sizes/normal_font_size = 84
 bbcode_enabled = true
-text = "Game Over"
+text = "You Died"
 
-[node name="quit" type="Button" parent="CanvasLayer/Control" unique_id=1648896719]
+[node name="quit" type="Button" parent="CanvasLayer/Control" unique_id=561727521]
 layout_mode = 0
-offset_left = 480.0
-offset_top = 448.0
+offset_left = 512.0
+offset_top = 488.0
 offset_right = 648.0
-offset_bottom = 528.0
-text = "quit
-"
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("3_ek8ke")
+theme_override_styles/normal = SubResource("StyleBoxFlat_eoghk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_14u15")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j3ryr")
+text = "Respawn"
 
-[connection signal="pressed" from="CanvasLayer/Control/quit" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/quit" to="CanvasLayer" method="_on_quit_pressed"]

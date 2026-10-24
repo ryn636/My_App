@@ -12,9 +12,10 @@ extends Node2D
 
 
 var dialogue = []
+var gainedhp: bool = false
 var curr_diag_index: int = 0
 var in_area: bool = false
-
+var hearts_list: Array[TextureRect]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +23,9 @@ func _ready() -> void:
 		player.global_position = GlobalData.lastpos
 		
 	dialogue_display.visible = false
+	var grid = $CanvasLayer/GridContainer
+	for child in grid.get_children():
+		hearts_list.append(child)
 		
 	for e in get_tree().get_nodes_in_group("enemy"):
 		var trigger = e.get_node("Area2D")
@@ -48,21 +52,26 @@ func _on_trigger_entered(body: Node2D, enemy: CharacterBody2D) -> void: # knight
 		GlobalData.current_enemy_data = {
 			"enemy_id": enemy.enemy_id,
 			"fight_scene": enemy.fight_scene,
-			"enemy_hp": enemy.enemy_hp
+			"enemy_hp": enemy.enemy_hp,
+			"enemy_dmg": enemy.extra_dmg
 		}
 		get_tree().call_deferred("change_scene_to_file", "res://Scenes/fight.tscn")
 
 func _on_npc_area_entered(body: Node2D, enemy: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		in_area = true
+		enemy.get_node("inter").visible = true
 		if not GlobalData.defeated_enemies.has("knight_1"):
 			dialogue = load_dialogue(enemy.id, "dialogue") # json file must be named blueguynpc
 		else:
 			dialogue = load_dialogue(enemy.id, "blueguynpc_after_defeat")
+			gainedhp = true
+			
 
 func _on_npc_area_exited(body: Node2D, enemy: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
 		in_area = false
+		enemy.get_node("inter").visible = false
 		dialogue_display.visible = false
 		
 func load_dialogue(npc_name: String, key: String) -> Array:
@@ -83,11 +92,12 @@ func _input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey and in_area:
 		if event.physical_keycode == KEY_E and not event.is_echo():  # single press
+			$blueguynpc.get_node("inter").visible = false
 			dialogue_display.visible = true
 			curr_diag_index = -1 
 			next_line()
 	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
+		if event.button_index == MOUSE_BUTTON_LEFT:		
 			if dialogue_display.visible:
 				next_line()
 		
@@ -96,8 +106,24 @@ func next_line() ->void:
 	curr_diag_index += 1
 	if curr_diag_index >= len(dialogue):
 		dialogue_display.visible = false
+		if gainedhp:
+			GlobalData.max_lives += 1
+			GlobalData.lives = GlobalData.max_lives
+			$CanvasLayer/GridContainer.columns += 1
+			var healthnew = $CanvasLayer/GridContainer/TextureRect.duplicate()
+			$CanvasLayer/GridContainer.add_child(healthnew)
+			gainedhp = false
 		return
 		
 	textLabel.text = dialogue[curr_diag_index]
 		
 	
+
+
+func _on_checkpoint_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		GlobalData.checkpoint = Vector2(608, 1216)
+		
+func _process(delta: float) -> void:
+	for i in range(hearts_list.size()):
+		hearts_list[i].visible = i < GlobalData.lives
