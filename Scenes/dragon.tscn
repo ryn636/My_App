@@ -193,7 +193,7 @@ sprite_faces_right = false
 chase_duration = 6.0
 enemy_id = "dragon_1"
 fight_scene = ExtResource("2_gfnx5")
-enemy_hp = 20
+enemy_hp = 25
 extra_dmg = 2
 
 [node name="dragonsprite" type="AnimatedSprite2D" parent="." unique_id=966762374]

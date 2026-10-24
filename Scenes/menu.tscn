@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://vd0wm05c8cq6" path="res://buttons/Sprites/UI_TravelBook_Line01a.png" id="22_48g0d"]
 [ext_resource type="Texture2D" uid="uid://intk2slt7wgc" path="res://Assets/Hero/male_hero-combo_1.png" id="23_jbv25"]
 [ext_resource type="Texture2D" uid="uid://cgryfti7ukywp" path="res://Assets/Hero/male_hero-combo_1_end.png" id="24_nakb8"]
+[ext_resource type="Script" uid="uid://ddivv66fkxxts" path="res://Scripts/khan.gd" id="25_ocger"]
 [ext_resource type="Texture2D" uid="uid://b21p1x821nuia" path="res://Assets/Hero/male_hero-idle.png" id="25_pde1v"]
 [ext_resource type="Texture2D" uid="uid://bw715h13bh8ot" path="res://Assets/Hero/male_hero-run.png" id="26_747ic"]
 [ext_resource type="Script" uid="uid://dg6j1u3aqsuxr" path="res://Scripts/line_edit.gd" id="26_i37ye"]
@@ -539,18 +540,6 @@ theme_override_fonts/font = ExtResource("8_q3rjx")
 theme_override_font_sizes/font_size = 8
 text = "an educational adventure"
 
-[node name="Label5" type="Label" parent="." unique_id=1478781869]
-offset_left = 584.0
-offset_top = 368.0
-offset_right = 824.0
-offset_bottom = 426.0
-theme_override_fonts/font = ExtResource("8_q3rjx")
-theme_override_font_sizes/font_size = 16
-text = "for additional help 
-visit khanacademy.org"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Label2" type="Label" parent="." unique_id=1949764592]
 offset_right = 40.0
 offset_bottom = 23.0
@@ -559,6 +548,29 @@ offset_bottom = 23.0
 position = Vector2(5464, 840)
 scale = Vector2(45.78782, 0.7656339)
 texture = ExtResource("21_lvy56")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1744004960]
+offset_left = 600.0
+offset_top = 362.0
+offset_right = 808.0
+offset_bottom = 434.0
+focus_mode = 2
+theme_override_fonts/normal_font = ExtResource("8_q3rjx")
+bbcode_enabled = true
+text = "for additional help 
+visit khanacademy.org"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+selection_enabled = true
+script = ExtResource("25_ocger")
+
+[node name="LinkButton" type="LinkButton" parent="." unique_id=1740073939]
+offset_left = 640.0
+offset_top = 400.0
+offset_right = 760.0
+offset_bottom = 416.0
+uri = "https://www.khanacademy.org/"
 
 [connection signal="pressed" from="CanvasLayer/quit" to="CanvasLayer" method="_on_quit_pressed"]
 [connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer" method="_on_play_pressed"]
