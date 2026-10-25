@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://dhwsxd3ri3u0r"]
+
+[ext_resource type="Texture2D" uid="uid://bq2fmbuknxkpj" path="res://Assets/Flying Demon 2D Pixel Art/Sprites/without_outline/IDLE.png" id="1_fiwpc"]
+[ext_resource type="Script" uid="uid://cme03s1n46j4e" path="res://Scripts/enemy_knight.gd" id="1_li3uk"]
+[ext_resource type="PackedScene" uid="uid://bgolenfcojkbl" path="res://Scenes/demon_1.tscn" id="2_30acj"]
+[ext_resource type="Texture2D" uid="uid://bhtpm0rc748jh" path="res://Assets/Flying Demon 2D Pixel Art/Sprites/without_outline/FLYING.png" id="2_li3uk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30acj"]
+atlas = ExtResource("1_fiwpc")
+region = Rect2(0, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sku76"]
+atlas = ExtResource("1_fiwpc")
+region = Rect2(79, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydh87"]
+atlas = ExtResource("1_fiwpc")
+region = Rect2(158, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jagv4"]
+atlas = ExtResource("1_fiwpc")
+region = Rect2(237, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlxd6"]
+atlas = ExtResource("2_li3uk")
+region = Rect2(0, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hj30"]
+atlas = ExtResource("2_li3uk")
+region = Rect2(79, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72mqd"]
+atlas = ExtResource("2_li3uk")
+region = Rect2(158, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l0w1"]
+atlas = ExtResource("2_li3uk")
+region = Rect2(237, 0, 79, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d7w6g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30acj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sku76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydh87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jagv4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlxd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hj30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72mqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l0w1")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 6.0
+}]
+
+[sub_resource type="Animation" id="Animation_mbkrc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n3eik"]
+resource_name = "alert"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7gcxt"]
+resource_name = "alert2"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.353256, 0.18069082, 0.20686418, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0.2), Vector2(-1, -0.2), Vector2(0.5, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fiwpc"]
+_data = {
+&"RESET": SubResource("Animation_mbkrc"),
+&"alert": SubResource("Animation_n3eik"),
+&"alert2": SubResource("Animation_7gcxt")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7w6g"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1jlh"]
+radius = 72.0
+
+[node name="demon" type="CharacterBody2D" unique_id=778097301 node_paths=PackedStringArray("enemy_sprite", "alert_player", "sight", "body_shape") groups=["enemy"]]
+script = ExtResource("1_li3uk")
+enemy_sprite = NodePath("AnimatedSprite2D")
+alert_player = NodePath("AnimatedSprite2D/AnimationPlayer")
+sight = NodePath("Sprite2D/RayCast2D")
+body_shape = NodePath("CollisionShape2D")
+sprite_faces_right = false
+detection_radius = 300.0
+enemy_id = "demon_1"
+fight_scene = ExtResource("2_30acj")
+enemy_hp = 8
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248111260]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_d7w6g")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.5425105
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1172004922]
+libraries/ = SubResource("AnimationLibrary_fiwpc")
+speed_scale = 1.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=245938262]
+position = Vector2(-16, 8)
+shape = SubResource("CircleShape2D_d7w6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=589620284]
+
+[node name="RayCast2D" type="RayCast2D" parent="Sprite2D" unique_id=763735659]
+position = Vector2(-16, 8)
+target_position = Vector2(-232, 0)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1317500061]
+
+[node name="teleport" type="CollisionShape2D" parent="Area2D" unique_id=1248869451]
+position = Vector2(-16, 8)
+shape = SubResource("CircleShape2D_a1jlh")

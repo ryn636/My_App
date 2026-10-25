@@ -243,7 +243,14 @@ func play_locked_animation(character: String) -> void: # death and damage
 	set_buttons_disabled(true)
 	if character == "player":
 		if GlobalData.lives > 0:
-			enemy_anim.play("attack")
+			if enemy_instance.is_in_group("gargoyle"):
+				var n = randi_range(1,2)
+				if n == 1:
+					enemy_anim.play("attack")
+				elif n ==2:
+					enemy_anim.play("attack2")
+			else:
+				enemy_anim.play("attack")
 			anim.play("take_dmg")
 		elif GlobalData.lives <= 0:
 			get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
@@ -330,3 +337,19 @@ func _on_frame_changed() ->void:
 				enemy_anim.get_node("firebreath").visible = true
 			elif enemy_anim.frame == 18:
 				enemy_anim.get_node("firebreath").visible = false
+		elif enemy_instance.is_in_group("demon"):
+			if enemy_anim.frame == 3:
+				enemy_anim.get_node("fireball").visible = true
+				enemy_anim.get_node("AnimationPlayer").play("fireball")
+			if enemy_anim.frame == 7:
+				enemy_anim.get_node("fireball").visible = false
+				
+	if enemy_anim.animation == "take_damage":
+		if enemy_instance.is_in_group("taurus"):
+			if enemy_anim.frame == 1:
+				enemy_anim.get_node("AnimationPlayer").play("hit")
+		elif enemy_instance.is_in_group("gargoyle"):
+			if enemy_anim.frame == 1:
+				enemy_anim.get_node("AnimationPlayer").play("hit")
+			
+			

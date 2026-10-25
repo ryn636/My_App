@@ -31,6 +31,9 @@ enemy=""
 fightenemy=""
 npc=""
 dragon=""
+demon=""
+taurus=""
+gargoyle=""
 
 [input]
 

@@ -14,78 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bjp6xqkpqgw4p" path="res://buttons/Sprites/UI_TravelBook_Slot01a.png" id="12_kla5h"]
 [ext_resource type="Texture2D" uid="uid://ctx1lvhf0a6kx" path="res://buttons/Sprites/UI_TravelBook_IconTick01a.png" id="13_b1d61"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn23j"]
-bg_color = Color(0.80811965, 0.25273892, 0.28111976, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osq2n"]
-bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.31958842, 0.77102584, 0.48829192, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kla5h"]
-bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.9715223, 0.526358, 0.36074358, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1d61"]
-bg_color = Color(0.20334157, 0.72391415, 0.38954765, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iin7n"]
-bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.31958842, 0.77102584, 0.48829192, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgrs5"]
-bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.9715223, 0.526358, 0.36074358, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_02tnk"]
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -232,6 +160,78 @@ _data = {
 &"display": SubResource("Animation_osq2n")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn23j"]
+bg_color = Color(0.80811965, 0.25273892, 0.28111976, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osq2n"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.31958842, 0.77102584, 0.48829192, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kla5h"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.9715223, 0.526358, 0.36074358, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1d61"]
+bg_color = Color(0.20334157, 0.72391415, 0.38954765, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iin7n"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.31958842, 0.77102584, 0.48829192, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgrs5"]
+bg_color = Color(0.19923353, 0.22654545, 0.23806524, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.9715223, 0.526358, 0.36074358, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="fight" type="Node2D" unique_id=235376421]
 script = ExtResource("1_bq00v")
 
@@ -276,30 +276,6 @@ texture = ExtResource("5_kla5h")
 [node name="player" parent="." unique_id=2135218992 instance=ExtResource("2_bq00v")]
 position = Vector2(304, 552)
 scale = Vector2(2, 2)
-
-[node name="attack" type="Button" parent="." unique_id=937329310]
-offset_left = 408.0
-offset_top = 568.0
-offset_right = 544.0
-offset_bottom = 624.0
-theme_override_fonts/font = ExtResource("8_ww01n")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wn23j")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_osq2n")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kla5h")
-text = "attack"
-
-[node name="heal" type="Button" parent="." unique_id=1830234930]
-offset_left = 592.0
-offset_top = 568.0
-offset_right = 728.0
-offset_bottom = 624.0
-theme_override_fonts/font = ExtResource("8_ww01n")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_b1d61")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_iin7n")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bgrs5")
-text = "heal"
 
 [node name="popup" parent="." unique_id=650290190 instance=ExtResource("4_vvs45")]
 visible = false
@@ -387,7 +363,31 @@ expand_icon = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/answers" unique_id=2074702237]
 libraries/ = SubResource("AnimationLibrary_kla5h")
 
-[connection signal="pressed" from="attack" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="heal" to="." method="_on_heal_pressed"]
+[node name="attack" type="Button" parent="." unique_id=937329310]
+offset_left = 408.0
+offset_top = 568.0
+offset_right = 544.0
+offset_bottom = 624.0
+theme_override_fonts/font = ExtResource("8_ww01n")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wn23j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_osq2n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kla5h")
+text = "attack"
+
+[node name="heal" type="Button" parent="." unique_id=1830234930]
+offset_left = 592.0
+offset_top = 568.0
+offset_right = 728.0
+offset_bottom = 624.0
+theme_override_fonts/font = ExtResource("8_ww01n")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_b1d61")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iin7n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bgrs5")
+text = "heal"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/answers/ansdisplay" to="." method="_on_ansdisplay_pressed"]
+[connection signal="pressed" from="attack" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="heal" to="." method="_on_heal_pressed"]
