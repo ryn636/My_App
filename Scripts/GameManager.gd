@@ -22,7 +22,6 @@ func _ready() -> void:
 	if GlobalData.has_return_position:
 		player.global_position = GlobalData.lastpos
 		
-	GlobalData.checkpoint = $Marker2D2.position
 	
 	dialogue_display.visible = false
 	var grid = $CanvasLayer/GridContainer

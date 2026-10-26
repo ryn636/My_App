@@ -22,8 +22,8 @@ extends Node2D
 @onready var box: ColorRect = $CanvasLayer/red
 
 
-var math_problems: Array[Dictionary] = []
-var spelling_probs: Array[Dictionary] = []
+
+
 
 
 var mathIndex: int
@@ -79,54 +79,6 @@ func _ready() -> void:
 
 
 
-func load_problems(path: String) -> void: # load array
-	var file = FileAccess.open("res://Assets/math/math_problems_arithmetic.csv", FileAccess.READ)
-	if file == null:
-		push_error("Could not open %s" % path)
-		return
-	
-	var headers = file.get_csv_line()  # ["id", "a", "op", "b", "answer", "difficulty"]
-
-	while not file.eof_reached():
-		var row = file.get_csv_line()
-		if row.size() < headers.size():
-			continue  # skip trailing blank line
-		var entry = {}
-		for i in range(headers.size()):
-			entry[headers[i]] = row[i]
-		math_problems.append({
-			"id": int(entry["id"]),
-			"a": int(entry["a"]),
-			"op": entry["op"],
-			"b": int(entry["b"]),
-			"answer": int(entry["answer"]),
-			"difficulty": int(entry["difficulty"]),
-		})
-
-	file.close()
-
-func load_spelling(path: String) -> void: 
-	var file = FileAccess.open(path, FileAccess.READ)
-	if file == null:
-		push_error("Could not open %s" % path)
-		return
-	
-	var headers = file.get_csv_line()  # ["id", "word", "answer", "difficulty"]
-
-	while not file.eof_reached():
-		var row = file.get_csv_line()
-		if row.size() < headers.size():
-			continue  # skip trailing blank line
-		var entry = {}
-		for i in range(headers.size()):
-			entry[headers[i]] = row[i]
-		spelling_probs.append({
-			"id": int(entry["id"]),
-			"a": String(entry["word"]),
-			"answer": String(entry["answer"]),
-			"difficulty": String(entry["difficulty"]),
-		})
-	file.close()
 	
 func show_math_problem(index: int, prob: Array[Dictionary]) -> void: # update label
 	var p = prob[index]
@@ -182,13 +134,13 @@ func _on_enter_button_pressed() -> void: #submit
 	if curr_popup == pop:
 		if not GlobalData.entry == 0:
 			$popup/CanvasLayer/pop/ansbox.text = ""
-			_answer(mathIndex, math_problems, GlobalData.entry)
+			_answer(mathIndex, GlobalData.math_problems, GlobalData.entry)
 
 func _on_enter_spelling_button_pressed() -> void:
 	if curr_popup == spelling_popup:
 		if not GlobalData.spelling_entry == "":
 			$spelling_popup/CanvasLayer/spellingpop/ans.text = ""
-			_answer(spellIndex, spelling_probs, GlobalData.spelling_entry)
+			_answer(spellIndex, GlobalData.spelling_probs, GlobalData.spelling_entry)
 
 func _on_heal_pressed() -> void: # heal
 	$heal.release_focus()
@@ -199,9 +151,9 @@ func _on_heal_pressed() -> void: # heal
 		return
 	problemtype = randi_range(1,1)
 	if problemtype == 1:
-		load_problems("res://Assets/math/math_problems_mixed.csv")
+		
 		mathIndex = randi_range(0, 29)
-		show_math_problem(mathIndex, math_problems)
+		show_math_problem(mathIndex, GlobalData.math_problems)
 		curr_popup.visible = true
 		
 func _on_button_pressed() -> void: # attack
@@ -211,13 +163,11 @@ func _on_button_pressed() -> void: # attack
 	$popup/CanvasLayer/pop/ansbox.text = ""
 	problemtype = randi_range(1,2)
 	if problemtype == 1:
-		load_problems("res://Assets/math/math_problems.csv")
-		mathIndex = randi_range(0, len(math_problems)-1)
+		mathIndex = randi_range(0, len(GlobalData.math_problems)-1)
 		curr_popup = pop
-		show_math_problem(mathIndex, math_problems)
+		show_math_problem(mathIndex, GlobalData.math_problems)
 		curr_popup.visible = true
 	elif problemtype == 2:
-		load_spelling("res://Assets/spelling/spelling_words.csv")
 		spellIndex = randi_range(0, 4)
 		spelling_popup.changeAudio(spellIndex)
 		curr_popup = spelling_popup
